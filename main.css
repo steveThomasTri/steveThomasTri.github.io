@@ -1,0 +1,22 @@
+body{
+    font-family: 'Do Hyeon', sans-serif;
+}
+
+div{
+    font-size: 20px;
+}
+
+#testhover:hover{
+    font-size: 30px;
+    color:pink;
+}
+
+.testactive:active{
+    letter-spacing: 10px;
+}
+
+#testinput:focus{
+    font-size:30px;
+    background-color: blue;
+    color: white;
+}
