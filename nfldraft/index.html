@@ -21,7 +21,7 @@
         }
 
         #intro {
-            background: url("https://mdbootstrap.com/img/Photos/Horizontal/Nature/full%20page/img%20%283%29.jpg")no-repeat center center fixed;
+            background: url("../NFL_Draft.jpg")no-repeat center center fixed;
             -webkit-background-size: cover;
             -moz-background-size: cover;
             -o-background-size: cover;
@@ -30,6 +30,11 @@
 
         .btnn-white {
             color: white
+        }
+
+        p.paragraph {
+            font-size: 18px;
+            line-height: 2.22
         }
     </style>
 </head>
@@ -97,14 +102,14 @@
                     <div class="row d-flex justify-content-center text-center">
                         <div class="col-md-10">
                             <!-- Heading -->
-                            <h2 class="display-4 font-weight-bold white-text pt-5 mb-2">Travel</h2>
+                            <h2 class="display-4 font-weight-bold white-text pt-5 mb-2">2019 NFL Draft</h2>
 
                             <!-- Divider -->
                             <hr class="hr-light">
 
                             <!-- Description -->
-                            <h4 class="white-text my-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                                Deleniti consequuntur.</h4>
+                            <h4 class="white-text my-4">Taking you through my methodology of whether or not this year's
+                                NFL prospects will be drafted.</h4>
                             <button type="button" class="btn btn-outline-white">Read more<i
                                     class="fas fa-book ml-2"></i></button>
                         </div>
@@ -117,165 +122,304 @@
     <main class="mt-5">
         <div class="container">
             <section class="text-center">
-                <h2 class="mb-5">Best Features</h2>
                 <div class="row d-flex justify-content-center mb-4">
                     <div class="col-md-8">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi voluptate hic provident nulla
-                            repellat
-                            facere esse molestiae ipsa labore porro minima quam quaerat rem, natus repudiandae debitis
-                            est
-                            sit pariatur.</p>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-lg-4 col-md-12">
-                        <div class="view overlay z-depth-1-half">
-                            <img src="cashexplosion.png" class="card-img-top" alt="">
-                            <div class="mask rgba-white-light"></div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6">
-                        <div class="view overlay z-depth-1-half">
-                            <img src="cwruhelpdesk.png" class="card-img-top" alt="">
-                            <div class="mask rgba-white-light"></div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6">
-                        <div class="view overlay z-depth-1-half">
-                            <img src="cashexplosion.png" class="card-img-top" alt="">
-                            <div class="mask rgba-white-light"></div>
-                        </div>
+                        <blockquote class="blockquote text-center">
+                            <p class="mb-0">The one thing that I have learned throughout this process is to be ok with
+                                your findings. It was eye opening to witness how much rigor goes into solving a problem.
+                            </p>
+                            <footer class="blockquote-footer mb-3">Steve Thomas <cite title="Source Title">2019</cite>
+                            </footer>
+                        </blockquote>
                     </div>
                 </div>
             </section>
             <hr class="my-5">
-            <section class="text-center">
-                <h2 class="mb-5">Best Features</h2>
-                <div class="row d-flex justify-content-center mb-4">
-                    <div class="col-md-8">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi voluptate hic provident nulla
-                            repellat
-                            facere esse molestiae ipsa labore porro minima quam quaerat rem, natus repudiandae debitis
-                            est
-                            sit pariatur.</p>
+            <section>
+                <div class="row">
+                    <div class="col-md-12">
+                        <p class="paragraph">Approximately two months ago, I was and still am fascinated about the world
+                            of machine learning. I had looked through tutorials about using the MNIST data set to
+                            predict numbers, classes of flowers, whether a picture was a muffin or a puppy. Going
+                            through these tutorials I had no problem in trying to set up a neural network or a decision
+                            tree or a logistic regression. However, the concept that was not clear to me was if you have
+                            set up a model with a certain accuracy, how do you then improve on that accuracy? </p>
+
+                        <p class="paragraph">Then I went into exploring machine learning packages from python that you
+                            can use. Many packages are out there like sci-kit learn, tensorflow, keras, xgboost, etc. I
+                            knew that I wanted to do a classification problem, basically answering a Yes or No question,
+                            but which one would I want to do? What problem was most interesing to me?</p>
+
+                        <p class="paragraph">A little backgroud experience of the python technologies that I have used.
+                            I used BeautifulSoup, selenium/splinter for automation, flask for backend development. For
+                            data visualization, jupyter notebook, pandas, matplotlib. For machine learning, keras,
+                            sci-kit learn, tensorflow. It was time to put these to use and see if I can find a problem
+                            and attempt to solve. In our class, there was a lot of football talk about the Cleveland
+                            Browns this year and how they could be a playoff team. So I was thinking, how team select
+                            players adn what is the process that prospects go through. There are "analysts" and
+                            "experts" that predict where would players go, when would they go off the board in a draft,
+                            what round are they picked. Although these questions are great for an advanced model, I just
+                            want to predict whether a player would get drafted. And so, the data science problem was
+                            stated.</p>
+
+                        <h4 class="border border-success p-md-2"><strong>Based on an NFL draft prospects height, weight,
+                                and the results that they posted in the NFL combine, will this person be
+                                drafted?</strong></h4>
+
+                        <p class="paragraph">As you read through this article, pay special attention to green boxes,
+                            because over the course of two months, the main question changes as I learn new methods and
+                            ways to represent the data. Now that I have the question at hand, how would we retrieve the
+                            data?</p>
                     </div>
                 </div>
+            </section>
+            <hr class="my-5">
+            <section>
+                <h1>The process of the NFL draft</h1>
                 <div class="row">
-                    <div class="col-lg-4 col-md-12">
-                        <div class="card">
-                            <div class="view overlay">
-                                <img src="cashexplosion.png" class="card-img-top" alt="">
-                                <a href="#">
-                                    <div class="mask rgba-white-slight"></div>
-                                </a>
-                            </div>
-                            <div class="card-body">
-                                <h4 class="card-title">
-                                    Card Title
-                                </h4>
-                                <p class="card-text">This is the card title</p>
-                                <a href="#" class="btn btn-primary">Button</a>
-                            </div>
-                        </div>
+                    <div class="col-md-12">
+                        <p class="paragraph">Before we get into the data acquisition, A word on how the draft works. In
+                            late April, for three days, Americans are glued to watch which players will be drafted to
+                            which teams. Usually day 1 has the most talented prospects and that generates the most buzz.
+                            Day 2 consists of rounds 2 and 3. The conclusion of the draft is day 3 for rounds 4 to 7.
+                            There are 32 teams in the NFL and each team gets a pick for each round. A total of 224
+                            people are drafted plus 32 additional picks for a total of 256 players that are drafted.
+                            This picks are compulsorary unless they trade. For further reading on how the draft works
+                            with the twists and turns, read the NFL's article titled <a
+                                href="https://operations.nfl.com/the-players/the-nfl-draft/the-rules-of-the-draft/">The
+                                Rules of the draft</a></p>
+
+                        <p class="paragraph">But what is a draft without prospects. That is where coaches get a look at
+                            how athletic each prospect is. How well they interview with coaches. How well they test and
+                            other factors. Two months earlier, 338 prospects were invited to Indianapolis. The link of
+                            all of the invitees is <a
+                                href="https://www.cbssports.com/nfl/draft/news/2019-nfl-draft-full-list-of-338-prospects-invited-to-nfl-scouting-combine-including-kyler-murray/">here</a>.
+                        </p>
+
+                        <p class="paragraph">Most of the prospects will compete in at least one of 6 testing events in
+                            the combine:</p>
+                        <ol>
+                            <li>Bench Press - The weights are set at 225 lbs. and the person has to do as many reps as
+                                possible. This is an indicator of their strength. </li>
+                            <li>Vertical Leap - The prospect starts standing, they will jump as high as they can to slap
+                                a wall. This is an indicator of their lower body strenght and power</li>
+                            <li>Broad Jump - The prosepect starts flat footed and then they leap out in front. This is
+                                an indicator of their lower body strength and power. </li>
+                            <li>Three Cone Relay - The course is an L shaped. They will start at a cone, run to the
+                                middle cone, run back to the start, then run around both cones before sprinting to the
+                                start. This is an indicator of how a prospect can quickly shift directions at high
+                                speed.</li>
+                            <li>20 yard Shuttle Run - A prospect starts at a line, sprints 5 yards forward, sprints 10
+                                yards back, and then sprints 5 yards forward to compolete the run. This is an indicator
+                                of the prospects ability to change direction and his lateral quickness.</li>
+                            <li>40 yard dash - A prospect sprints down 40 yards as quick as possible. This is an
+                                indication of their explosivemenss, speed, burst, and acceleration. </li>
+                        </ol>
+                        <p class="paragraph">This is the data that we will be testing once all of the models are
+                            complete. We have our test data, but now we need data to train through data acquisition.
+                        </p>
                     </div>
-                    <div class="col-lg-4 col-md-6">
-                        <div class="card">
-                            <div class="view overlay">
-                                <img src="cashexplosion.png" class="card-img-top" alt="">
-                                <a href="#">
-                                    <div class="mask rgba-white-slight"></div>
-                                </a>
-                            </div>
-                            <div class="card-body">
-                                <h4 class="card-title">
-                                    Card Title
-                                </h4>
-                                <p class="card-text">This is the card title</p>
-                                <a href="#" class="btn btn-primary">Button</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6">
-                        <div class="card">
-                            <div class="view overlay">
-                                <img src="cwruhelpdesk.png" class="card-img-top" alt="">
-                                <a href="#">
-                                    <div class="mask rgba-white-slight"></div>
-                                </a>
-                            </div>
-                            <div class="card-body">
-                                <h4 class="card-title">
-                                    Card Title
-                                </h4>
-                                <p class="card-text">This is the card title</p>
-                                <a href="#" class="btn btn-primary">Button</a>
-                            </div>
-                        </div>
+                </div>
+            </section>
+            <hr class="my-5">
+            <section>
+                <h1>Data Acquisition</h1>
+                <div class="row">
+                    <div class="col-md-12">
+                        <p class="paragraph">You can find all of the jupyter notebooks and the csv files that I have
+                            used on <a href="https://github.com/steveThomasTri/2019NFLDraftProject.git">GitHub</a></p>
+                        <p class="paragraph">In order to acquire the data that we would like to model, we needed to go
+                            to two websites. </p>
+                        <ul>
+                            <li>nflcombineresults.com</li>
+                            <li>drafthistory.com</li>
+                        </ul>
+                        <p class="paragraph">The reason that we chose the first website is considering all other
+                            websites at the time, this one seems to be the most comprehensive. Whilst
+                            pro-football-reference had combine results that went back to 2000, The nflcombineresults.com
+                            went all the way back to 1997. From the first jupyter notebook (1 Data Acquisition) we start
+                            the process
+                            of getting all of the combine results from 1997 – 2018. The reason that we went back to 1997
+                            is because that year first introduced the 3 cone event. The website is nflcombineresults.com
+                            – 32 years of NFL scouting Combine data is the website that we used to scrape the data from
+                            splinter. After I got all of the combine data, I had to normalize the names column so that
+                            the name is lower case and remove all punctuations marks so that when we compare the names
+                            to whether they get drafted or not, the process would be easier. For this, we go to
+                            drafthistory.com. Gather the list of names from 1997 - 2018 and then cross check them to the
+                            nflcombinedata97to18.csv file. We would also like to
+                            remove rows that didn’t post a score in any of the events. Our model assumes that a prospect
+                            has competed in at least one event. So in this case, we will now revise our main question.
+                        </p>
+
+                        <h4 class="border border-success p-md-2"><strong>Having at least participated in one NFL combine
+                                event, will a future prospect be drafted in the NFL?</strong></h4>
+
+                        <p class="paragraph"><em>*A moment of retrospect* In gathering the data, you will notice that I
+                                used splinter to gather all of the data for each year. If I had to do this process all
+                                over again, It is much easier to use the pandas read_html function as it is much quicker
+                                to get the data and then each year i can concatenate the dataframes. Also, there may
+                                have been two key columns that were missing, hand size and arm length. These factors
+                                could have affected any future models that I might have made.</em></p>
+
+                        <p class="paragraph">Also, in 2015 the data accounted for 700 prospects in the NFL combine for
+                            that year. This is caused to additional data being added for that year. We cannot tell the
+                            reason as to why this occurred, but we cross-checked the number of combine participants for
+                            2015 and most of the sources have the number at around 300 individuals. So wel will need to
+                            remove those rows that are not in the combine. We will be going to the <a
+                                href="https://www.sbnation.com/nfl/2015/2/6/7993765/nfl-combine-2015-invite-list">SB
+                                Nation website</a>
+                            that has the list of 2015 combine participants and search the dataframe to see if any
+                            players do not make the list. If the name is not in the article, remove that row and only
+                            search the rows with year 2015. In doing so, we have eliminated 451 rows giving a final 2015
+                            total of 285 rows. Then we merged the
+                            two dataframes by name and year to obtain a new dataset of 6300 rows.</p>
+
+                        <p class="paragraph">The drafthistory.com website provides us with the years of every NFL player that has been
+                            drafted. All that we are looking for is if the player is on the list, then we consider them
+                            drafted. Going to the website, I used splinter to gather a list of each player. And those
+                            players are stored in a dataframe called drafted. Storing the name, year, and a 1 for
+                            drafted. Once I have this dataframe, I will merge this dataframe with eht combine
+                            information that I have previously made and merge it on the name and the year, because it is
+                            possible that there maybe players with the same name in different years. For the column
+                            drafed, I changed the values of 1 to Y and 0 to N to get the final csv file with 6,300 rows
+                            and 13 columns. </p>
                     </div>
                 </div>
             </section>
         </div>
     </main>
-    <footer class="page-footer font-small blue pt-4 mt-4">
-        <div class="container text-center text-md-left">
-            <div class="row">
-                <div class="col-md-6 mt-md-0 mt-3">
-                    <h5 class="text-uppercase">Footer Content</h5>
-                    <p>Here you can use rows and columns here to organize your footer content.</p>
-                </div>
-                <hr class="clearfix w-100 d-md-none pb-3">
-                <div class="col-md-3 mb-md-0 mb-3">
+    <!-- Footer -->
+    <!--Footer-->
+    <footer class="page-footer unique-color-dark">
 
-                    <!-- Links -->
-                    <h5 class="text-uppercase">Links</h5>
+        <!-- Social buttons -->
+        <div class="primary-color">
+            <div class="container">
+                <!--Grid row-->
+                <div class="row py-4 d-flex align-items-center">
 
-                    <ul class="list-unstyled">
-                        <li>
-                            <a href="#!">Link 1</a>
-                        </li>
-                        <li>
-                            <a href="#!">Link 2</a>
-                        </li>
-                        <li>
-                            <a href="#!">Link 3</a>
-                        </li>
-                        <li>
-                            <a href="#!">Link 4</a>
-                        </li>
-                    </ul>
+                    <!--Grid column-->
+                    <div class="col-md-6 col-lg-5 text-center text-md-left mb-4 mb-md-0">
+                        <h6 class="mb-0 white-text">Get connected with us on social networks!</h6>
+                    </div>
+                    <!--Grid column-->
 
-                </div>
-                <div class="col-md-3 mb-md-0 mb-3">
-
-                    <!-- Links -->
-                    <h5 class="text-uppercase">Links</h5>
-
-                    <ul class="list-unstyled">
-                        <li>
-                            <a href="#!">Link 1</a>
-                        </li>
-                        <li>
-                            <a href="#!">Link 2</a>
-                        </li>
-                        <li>
-                            <a href="#!">Link 3</a>
-                        </li>
-                        <li>
-                            <a href="#!">Link 4</a>
-                        </li>
-                    </ul>
+                    <!--Grid column-->
+                    <div class="col-md-6 col-lg-7 text-center text-md-right">
+                        <!--Facebook-->
+                        <a class="fb-ic ml-0">
+                            <i class="fab fa-facebook-f white-text mr-4"> </i>
+                        </a>
+                        <!--Twitter-->
+                        <a class="tw-ic">
+                            <i class="fab fa-twitter white-text mr-4"> </i>
+                        </a>
+                        <!--Google +-->
+                        <a class="gplus-ic">
+                            <i class="fab fa-google-plus-g white-text mr-4"> </i>
+                        </a>
+                        <!--Linkedin-->
+                        <a class="li-ic">
+                            <i class="fab fa-linkedin-in white-text mr-4"> </i>
+                        </a>
+                        <!--Instagram-->
+                        <a class="ins-ic">
+                            <i class="fab fa-instagram white-text mr-lg-4"> </i>
+                        </a>
+                    </div>
+                    <!--Grid column-->
 
                 </div>
+                <!--Grid row-->
             </div>
         </div>
+        <!-- Social buttons -->
+
+        <!--Footer Links-->
+        <div class="container mt-5 mb-4 text-center text-md-left">
+            <div class="row mt-3">
+
+                <!--First column-->
+                <div class="col-md-3 col-lg-4 col-xl-3 mb-4">
+                    <h6 class="text-uppercase font-weight-bold">
+                        <strong>Company name</strong>
+                    </h6>
+                    <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+                    <p>Here you can use rows and columns here to organize your footer content. Lorem ipsum dolor sit
+                        amet, consectetur adipisicing elit.</p>
+                </div>
+                <!--/.First column-->
+
+                <!--Second column-->
+                <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+                    <h6 class="text-uppercase font-weight-bold">
+                        <strong>Products</strong>
+                    </h6>
+                    <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+                    <p>
+                        <a href="#!">MDBootstrap</a>
+                    </p>
+                    <p>
+                        <a href="#!">MDWordPress</a>
+                    </p>
+                    <p>
+                        <a href="#!">BrandFlow</a>
+                    </p>
+                    <p>
+                        <a href="#!">Bootstrap Angular</a>
+                    </p>
+                </div>
+                <!--/.Second column-->
+
+                <!--Third column-->
+                <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+                    <h6 class="text-uppercase font-weight-bold">
+                        <strong>Useful links</strong>
+                    </h6>
+                    <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+                    <p>
+                        <a href="#!">Your Account</a>
+                    </p>
+                    <p>
+                        <a href="#!">Become an Affiliate</a>
+                    </p>
+                    <p>
+                        <a href="#!">Shipping Rates</a>
+                    </p>
+                    <p>
+                        <a href="#!">Help</a>
+                    </p>
+                </div>
+                <!--/.Third column-->
+
+                <!--Fourth column-->
+                <div class="col-md-4 col-lg-3 col-xl-3">
+                    <h6 class="text-uppercase font-weight-bold">
+                        <strong>Contact</strong>
+                    </h6>
+                    <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+                    <p>
+                        <i class="fas fa-home  mr-3"></i> Euclid, Ohio, US</p>
+                    <p>
+                        <i class="fas fa-envelope mr-3"></i> myemail@myemail.com</p>
+                    <!--<p>
+                        <i class="fas fa-phone mr-3"></i> + 01 234 567 88</p>
+                    <p>
+                        <i class="fas fa-print mr-3"></i> + 01 234 567 89</p>
+                    -->
+                </div>
+                <!--/.Fourth column-->
+            </div>
+        </div>
+        <!--/.Footer Links-->
 
         <!-- Copyright -->
-        <div class="footer-copyright text-center py-3">©2019 Copyright:
-            <a href="#"> Steve Thomas</a>
+        <div class="footer-copyright text-center py-3">©2019 Copyright: Steve Thomas
         </div>
         <!-- Copyright -->
 
     </footer>
+    <!-- Footer -->
     <!-- JQuery -->
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <!-- Bootstrap tooltips -->
