@@ -6,6 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Steve Thomas Portfolio</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
+    <link rel="manifest" href="../site.webmanifest">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
     <!-- Bootstrap core CSS -->
@@ -42,7 +46,7 @@
 <body>
     <header>
         <nav class="navbar navbar-expand-lg navbar-dark primary-color fixed-top">
-            <a class="navbar-brand" href="#">Navbar</a>
+            <a class="navbar-brand" href="#"><img src="../android-chrome-192x192.png" style="width:40px" /></a>
 
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav"
                 aria-controls="basicExampleNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -69,9 +73,9 @@
                         <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown"
                             aria-haspopup="true" aria-expanded="false">Resume</a>
                         <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
-                            <a class="dropdown-item" href="#">Action</a>
-                            <a class="dropdown-item" href="#">Another action</a>
-                            <a class="dropdown-item" href="#">Something else here</a>
+                            <a class="dropdown-item" href="#">NodeJS</a>
+                            <a class="dropdown-item" href="#">Python</a>
+                            <a class="dropdown-item" href="#">Web Development</a>
                         </div>
                     </li>
                 </ul>
@@ -80,15 +84,15 @@
                 <form class="form-inline">
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item active">
-                            <a class="btn-floating btn-lg btn-li primary-color" type="button" role="button"><i
+                            <a  href="https://www.linkedin.com/in/steve-thomas-91685599/" class="btn-floating btn-lg btn-li primary-color" type="button" role="button"><i
                                     class="fab fa-linkedin-in btnn-white"></i></a>
                         </li>
                         <li class="nav-item">
-                            <a class="btn-floating btn-lg btn-git primary-color" type="button" role="button"><i
+                            <a href="https://github.com/steveThomasTri" class="btn-floating btn-lg btn-git primary-color" type="button" role="button"><i
                                     class="fab fa-github btnn-white"></i></a>
                         </li>
                         <li class="nav-item">
-                            <a class="btn-floating btn-lg btn-email primary-color" type="button" role="button"><i
+                            <a href="#" class="btn-floating btn-lg btn-email primary-color" type="button" role="button"><i
                                     class="fas fa-envelope btnn-white"></i></a>
                         </li>
                     </ul>
@@ -447,9 +451,74 @@
                             important to know that none of the positions are taken into consideration. Everyone is
                             treated equally.</p>
 
-                        <p class="paragraph">It is important to know in notebook 3 that We have kept in mind the question at hand and the positions that are considered in this years combine.  We dropped rows that had positions of NT (nose tackle), K (kicker), and LS (long snapper), because those positions are not considered in our testing data, we can drop those positions.  The model that was put forth in this notebook was a position neutral model.  We dropped the year, name, college, and position to test our features.  For future model testing, it is imperaitve that we use the same seed and test_sizes for all models.  Later on, we will go over the many different parameters that we will tune, but for now, let's get our first predictions.</p>
+                        <p class="paragraph">It is important to know in notebook 3 that We have kept in mind the
+                            question at hand and the positions that are considered in this years combine. We dropped
+                            rows that had positions of NT (nose tackle), K (kicker), and LS (long snapper), because
+                            those positions are not considered in our testing data, we can drop those positions. The
+                            model that was put forth in this notebook was a position neutral model. We dropped the year,
+                            name, college, and position to test our features. For future model testing, it is imperaitve
+                            that we use the same seed and test_sizes for all models. Later on, we will go over the many
+                            different parameters that we will tune, but for now, let's get our first predictions.</p>
 
-                        <p class="paragraph">We will use the data from the data folder called <a href="https://github.com/steveThomasTri/2019NFLDraftProject/blob/master/data/2019TestingData.csv">2019Testingdata.csv</a></p>
+                        <p class="paragraph">We will use the data from the data folder called <a
+                                href="https://github.com/steveThomasTri/2019NFLDraftProject/blob/master/data/2019TestingData.csv">2019Testingdata.csv</a>.
+                            Before we get to the predictions, how did we get the data for this file?</p>
+
+                        <h2>How I compiled the data for testing</h2>
+
+                        <p class="paragraph">Observe the notebook in the repository called <a
+                                href="https://github.com/steveThomasTri/2019NFLDraftProject/blob/master/Obtaining%20the%20Combine%20Results.ipynb">Obtaining
+                                the Combine Results</a>, We used the splinter dependency to obtain the combine results
+                            from the <a href="http://www.nfl.com/combine/">Official NFL Combine Site</a>. We have to
+                            navigate to each event as there is no page with all of the stats. We get the names of all
+                            the people in the combine, then anohter for loop gets the stats from each event. Splinter
+                            searches for a next button and scrapes the results, if it finds the next button, splinter
+                            gets the results, if not, splinter moves on to select the next event. After all events are
+                            put in a dataframe, all empty cells will be replaced with np.nan. Then we have to turn
+                            columns of the dataframe into numeric. The last step is to remove all of the rows that an
+                            athlete participated in none of the 6 events. </p>
+
+                        <p class="paragraph">The next website I went to get the current stats is the CBS Sports prospect
+                            rankings to get the stats on each player. <em>If I had to do this again, the NFL combine
+                                site had all of the players including the college, conference, arm length, and hand
+                                length. We may analyze different conferences to determine if some conferences are
+                                considered moreso over others. Also, the arm length and the hang length might have
+                                determined if players get picked often.</em>Once we got all of the data, we stored the
+                            data in two files. First, testcombine2019.csv and prospectinfo.csv. </p>
+
+                        <p class="paragraph">Then I combined both files using the <a
+                                href="https://github.com/steveThomasTri/2019NFLDraftProject/blob/master/combining%20data.ipynb">combining
+                                data </a> notebook by merging both files. Some column names weer changed to reflect the
+                            events of the combine. Also for the height, I converted it to inches. Through Microsoft
+                            Excel, I rearranged the columns and resaved the 2019Testingdata.csv file. </p>
+
+                        <p class='paragraph'>Going back to the Model testing notebook, we will be using the
+                            2019TestingData.csv file to make our predictions. I extracted the name and the position and
+                            dropped the columns only leaving the 8 features to pass through the model. I created a new
+                            dataframe that will list the predictions from my model as well as other predictions from
+                            other websites. I just wanted to compart my predictions from other sites. </p>
+
+                        <p class="paragraph">As of April 4, 2019, We have done the predictions and compared them to the
+                            <a href="https://www.draftsite.com/nfl/mock-draft/2019/v23/">version 23</a> of draftsite.com
+                            mock draft to see how we matched up with that site. Out of the 32 players drafted in the
+                            first round, 3 people were not considered because they didn't take part in any of the 6
+                            events. The list of people are:</p>
+
+                        <ul>
+                            <li>Kyler Murray</li>
+                            <li>Josh Jacobs</li>
+                            <li>Nasir Adderly</li>
+                        </ul>
+
+                        <p class="paragraph">Our model has 27 out of 29 players drafted. The two misses were Dwayne
+                            Haskins and Cody Ford. One of the questions that I have is that my model fails to draft
+                            Dwayne Haskins and Cody Ford. Why is this? We may beable to answer the question at a later
+                            point. This is great, however
+                            there is the possibility of false positives here. The predictions are airing on the side of
+                            more people being drafted. So there needs to be a process to change the parameters and why
+                            are we changing them.</p>
+
+                        <p class="paragraph">Something to note for the record.  Observe <a href="https://github.com/steveThomasTri/2019NFLDraftProject/blob/master/5%20Observing%20False%20Positives.ipynb">5 Observing False Positives</a> and notice the accuracy.  We got a 70.21% accuracy and the reason we obtain this is that previouusly, we deleted rows with NT, LS, and K.  This model is position neutral, so we shouldn't delete those rows.  However, my thinking was flawed and deleting these rows will be done for later models.  I restarted the process with the new model and the model predicted that 252 players will be drafted this year.  This is very unlikely, because the NFL drafts 256 players every year and as we observed, players that didn't participate in one event were still drafted, so there will be false positives in the model.  </p>
                     </div>
                 </div>
             </section>
@@ -496,28 +565,27 @@
                         <strong>Steve Thomas</strong>
                     </h6>
                     <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
-                    <p>Here you can use rows and columns here to organize your footer content. Lorem ipsum dolor sit
-                        amet, consectetur adipisicing elit.</p>
+                    <p>I am also an innovative problem solver helping organizations overcome their most pressing challenges. I have strong skills in web development, communication, and leadership, and I enjoy opportunities that challenge me to make a meaningful impact.</p>
                 </div>
                 <!--/.First column-->
 
                 <!--Second column-->
                 <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
                     <h6 class="text-uppercase font-weight-bold">
-                        <strong>Products</strong>
+                        <strong>My Experience</strong>
                     </h6>
                     <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
                     <p>
-                        <a href="#!">MDBootstrap</a>
+                        <a href="#!">Web Development</a>
                     </p>
                     <p>
-                        <a href="#!">MDWordPress</a>
+                        <a href="#!">NodeJS</a>
                     </p>
                     <p>
-                        <a href="#!">BrandFlow</a>
+                        <a href="#!">Python/Data Visualization</a>
                     </p>
                     <p>
-                        <a href="#!">Bootstrap Angular</a>
+                        <a href="#!">Machine Learning</a>
                     </p>
                 </div>
                 <!--/.Second column-->
@@ -525,17 +593,17 @@
                 <!--Third column-->
                 <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
                     <h6 class="text-uppercase font-weight-bold">
-                        <strong>Useful links</strong>
+                        <strong>Projects</strong>
                     </h6>
                     <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
                     <p>
-                        <a href="#!">Your Account</a>
+                        <a href="#!">Cash Explosion</a>
                     </p>
                     <p>
-                        <a href="#!">Become an Affiliate</a>
+                        <a href="#!">Data Helpdesk</a>
                     </p>
                     <p>
-                        <a href="#!">Shipping Rates</a>
+                        <a href="#!">2019 NFL Draft</a>
                     </p>
                     <p>
                         <a href="#!">Help</a>
