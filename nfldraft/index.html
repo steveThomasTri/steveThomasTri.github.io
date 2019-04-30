@@ -274,7 +274,8 @@
                             total of 285 rows. Then we merged the
                             two dataframes by name and year to obtain a new dataset of 6300 rows.</p>
 
-                        <p class="paragraph">The drafthistory.com website provides us with the years of every NFL player that has been
+                        <p class="paragraph">The drafthistory.com website provides us with the years of every NFL player
+                            that has been
                             drafted. All that we are looking for is if the player is on the list, then we consider them
                             drafted. Going to the website, I used splinter to gather a list of each player. And those
                             players are stored in a dataframe called drafted. Storing the name, year, and a 1 for
@@ -282,7 +283,173 @@
                             information that I have previously made and merge it on the name and the year, because it is
                             possible that there maybe players with the same name in different years. For the column
                             drafed, I changed the values of 1 to Y and 0 to N to get the final csv file with 6,300 rows
-                            and 13 columns. </p>
+                            and 13 columns. The completed file is called cleaned_NFL_combine_97_to_2018.csv. We now have
+                            the necessary data that has been cleaned, we will now go into analyzing our data and see
+                            what we can learn and any trends that we can observe.</p>
+                    </div>
+                </div>
+            </section>
+            <hr class="my-5">
+            <section>
+                <h1>Data Analysis</h1>
+                <div class="row">
+                    <div class="col-md-12">
+                        <p class="paragraph">We have our data merged and now what we want to do is see if there are any
+                            opportunities to clean our data. The CSV that we have created is
+                            (cleaned_NFL_combine_97_to_2018.csv) and this file is what we are going to be reading from
+                            now on. We will be using xgboost because it is a package that will handle NaN values, if
+                            not, then we will need another package to impute the values. Some of my motivations of using
+                            xgboost is this article</p>
+                        <p><a
+                                href="https://machinelearningmastery.com/gentle-introduction-xgboost-applied-machine-learning/">A
+                                Gentle Introduction to XGBoost for Applied Machine Learning</a></p>
+
+                        <p class="paragraph">We have classified our data as supervised, which is that we know what our
+                            features are and the data from those features and the target column that will decide whether
+                            or not someone is drafted. The jupyter notebook that we did our data analysis is <a
+                                href="https://github.com/steveThomasTri/2019NFLDraftProject/blob/master/2%20Data%20Analysis.ipynb">2
+                                Data Analysis</a></p>
+
+                        <p class="paragraph">A good start to analyze the data is to do a describe function on the
+                            dataframe. Here is a table that summarizes those features</p>
+
+                        <table class="table text-nowrap table-striped table-sm">
+                            <thead class="black text-white">
+                                <tr class="tableizer-firstrow">
+                                    <th>Feature</th>
+                                    <th>Range of values</th>
+                                    <th>Mean</th>
+                                    <th>Standard Deviation</th>
+                                    <th>Number of values</th>
+                                    <th>Percent missing</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Height</td>
+                                    <td>65.25-81.63</td>
+                                    <td>73.89</td>
+                                    <td>6.367</td>
+                                    <td>6300</td>
+                                    <td>0%</td>
+                                </tr>
+                                <tr>
+                                    <td>Weight</td>
+                                    <td>155-387</td>
+                                    <td>244.93</td>
+                                    <td>45.47</td>
+                                    <td>6300</td>
+                                    <td>0%</td>
+                                </tr>
+                                <tr>
+                                    <td>40 yards</td>
+                                    <td>4.21 - 6.12</td>
+                                    <td>4.81</td>
+                                    <td>.314</td>
+                                    <td>6083</td>
+                                    <td>3.4%</td>
+                                </tr>
+                                <tr>
+                                    <td>Bench press</td>
+                                    <td>2 - 51</td>
+                                    <td>20.9</td>
+                                    <td>6.33</td>
+                                    <td>4708</td>
+                                    <td>25.3%</td>
+                                </tr>
+                                <tr>
+                                    <td>Vertical leap</td>
+                                    <td>17.5 - 46</td>
+                                    <td>32.68</td>
+                                    <td>4.19</td>
+                                    <td>5505</td>
+                                    <td>12.6%</td>
+                                </tr>
+                                <tr>
+                                    <td>Broad Jump</td>
+                                    <td>73 - 147</td>
+                                    <td>113.27</td>
+                                    <td>9.29</td>
+                                    <td>5390</td>
+                                    <td>14.4%</td>
+                                </tr>
+                                <tr>
+                                    <td>Shuttle</td>
+                                    <td>3.73 - 5.68</td>
+                                    <td>4.386</td>
+                                    <td>.269</td>
+                                    <td>4769</td>
+                                    <td>24.3%</td>
+                                </tr>
+                                <tr>
+                                    <td>3 cone drill</td>
+                                    <td>6.34 - 9.61</td>
+                                    <td>7.34</td>
+                                    <td>.446</td>
+                                    <td>4640</td>
+                                    <td>26.3%</td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <p class="paragraph">As you can see, we get a good snapshot of what our data consists of. We
+                            have missing values, but because the xgboost library handles these pretty well, we will
+                            ignore these for now. The feature with the highest missing values is the 3 cone drill with
+                            26.3%. I have read in some articles that if there are 50% missing values, that column should
+                            be dropped. Other articles are in the range of 20-50%, depending on what you are trying to
+                            model. Because each event is important for certain positions moreso than the next and the
+                            fact that he missing values fall short of the 50% threshold, we will keep all of the columns
+                            and make a decision on whether to impute missing values or not. </p>
+
+                        <p class="paragraph">For 2 Data Analysis, I was looking for correlations of two variables. My
+                            thought process at the time was that if i can find relationaships between two variables, I
+                            can best understand my data better. I have got the following strong correlations</p>
+
+                        <ul>
+                            <li>vertical leap & broad jump (+.804956)</li>
+                            <li>weight_lbs & 40 yards (+.858913)</li>
+                            <li>3cone & shuttle (+.790662)</li>
+                            <li>broad_jump_in & 40 yards (-.819220)</li>
+                        </ul>
+
+                        <p class="paragraph">In notebook <a href="#">2b Exploratory Data Analysis</a> I have also done
+                            an analysis on each of the 6 events to see if there is anything else that I can learn from
+                            my data. What I wanted to do is to see if there is a flag for certain data. For example, We
+                            will look at the first table where i grouped by position and whether a person is drafted.
+                            Wide Receivers need to be fast so it makes sense that we look at how they run the 40 yard
+                            dash. People that were drafted had times between 4.21s and 4.76s. People that were not
+                            drafted ran between 4.31s and 4.85 seconds. My thought was that any wide receivers that ran
+                            less than 4.31 seconds would more likely get drafted and any wide receivers that ran slower
+                            than 4.76 seconds were more likely to not be drafted. If the testing data shows that faster
+                            than 4.31 seconds were drafted and slower than 4.76 seconds were not drafted, then I believe
+                            that there was something there and coaches were looking at the times of the 40 yard, not to
+                            say that other factors were considered, but the model might solely look at the 40 yard dash
+                            for wide receivers. The notebooks analyze the data by position and whether or not they were
+                            drafted is left in the notebook and I am open to what should I have explored further for
+                            this data or if this is a fruitless endeavor. We have got to know our data a little bit
+                            better, and now we will make our first attempt at modeling our data.</p>
+                    </div>
+                </div>
+            </section>
+            <hr class="my-5">
+            <section>
+                <h1>First Attempt at Modeling</h1>
+                <div class="row">
+                    <div class="col-md-12">
+                        <p class="paragraph">With the data to be trained and tested and keeping our question in mind, we
+                            would want a classification model. For this model, we will be using decision trees inside
+                            xgboost. We have 8 features from the data and one target feature. In notebook 3, we will run
+                            the model without any changes to see what our accuracy is. After the model has been ran, we
+                            have an accuracy of 69.60%. Which is ok, but I think that we can do better. The next thing
+                            that we will do is to predict the 2019 NFL draft with draftsite.com to see where the
+                            differences are. We have scraped the results of the 2019 NFL combine and we ended up with
+                            309 people to test, with aour assumptions of competing in at least one event. However it is
+                            important to know that none of the positions are taken into consideration. Everyone is
+                            treated equally.</p>
+
+                        <p class="paragraph">It is important to know in notebook 3 that We have kept in mind the question at hand and the positions that are considered in this years combine.  We dropped rows that had positions of NT (nose tackle), K (kicker), and LS (long snapper), because those positions are not considered in our testing data, we can drop those positions.  The model that was put forth in this notebook was a position neutral model.  We dropped the year, name, college, and position to test our features.  For future model testing, it is imperaitve that we use the same seed and test_sizes for all models.  Later on, we will go over the many different parameters that we will tune, but for now, let's get our first predictions.</p>
+
+                        <p class="paragraph">We will use the data from the data folder called <a href="https://github.com/steveThomasTri/2019NFLDraftProject/blob/master/data/2019TestingData.csv">2019Testingdata.csv</a></p>
                     </div>
                 </div>
             </section>
@@ -306,25 +473,9 @@
 
                     <!--Grid column-->
                     <div class="col-md-6 col-lg-7 text-center text-md-right">
-                        <!--Facebook-->
-                        <a class="fb-ic ml-0">
-                            <i class="fab fa-facebook-f white-text mr-4"> </i>
-                        </a>
-                        <!--Twitter-->
-                        <a class="tw-ic">
-                            <i class="fab fa-twitter white-text mr-4"> </i>
-                        </a>
-                        <!--Google +-->
-                        <a class="gplus-ic">
-                            <i class="fab fa-google-plus-g white-text mr-4"> </i>
-                        </a>
                         <!--Linkedin-->
                         <a class="li-ic">
                             <i class="fab fa-linkedin-in white-text mr-4"> </i>
-                        </a>
-                        <!--Instagram-->
-                        <a class="ins-ic">
-                            <i class="fab fa-instagram white-text mr-lg-4"> </i>
                         </a>
                     </div>
                     <!--Grid column-->
@@ -342,7 +493,7 @@
                 <!--First column-->
                 <div class="col-md-3 col-lg-4 col-xl-3 mb-4">
                     <h6 class="text-uppercase font-weight-bold">
-                        <strong>Company name</strong>
+                        <strong>Steve Thomas</strong>
                     </h6>
                     <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
                     <p>Here you can use rows and columns here to organize your footer content. Lorem ipsum dolor sit
