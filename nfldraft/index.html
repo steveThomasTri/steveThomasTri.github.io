@@ -46,7 +46,7 @@
 <body>
     <header>
         <nav class="navbar navbar-expand-lg navbar-dark primary-color fixed-top">
-            <a class="navbar-brand" href="#"><img src="../android-chrome-192x192.png" style="width:40px" /></a>
+            <a class="navbar-brand" href="/"><img src="../android-chrome-192x192.png" style="width:40px" /></a>
 
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav"
                 aria-controls="basicExampleNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -57,7 +57,7 @@
                 <!-- Left Side -->
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
-                        <a class="nav-link" href="#">Home
+                        <a class="nav-link" href="/">Home
                             <span class="sr-only">(current)</span>
                         </a>
                     </li>
@@ -518,7 +518,16 @@
                             more people being drafted. So there needs to be a process to change the parameters and why
                             are we changing them.</p>
 
-                        <p class="paragraph">Something to note for the record.  Observe <a href="https://github.com/steveThomasTri/2019NFLDraftProject/blob/master/5%20Observing%20False%20Positives.ipynb">5 Observing False Positives</a> and notice the accuracy.  We got a 70.21% accuracy and the reason we obtain this is that previouusly, we deleted rows with NT, LS, and K.  This model is position neutral, so we shouldn't delete those rows.  However, my thinking was flawed and deleting these rows will be done for later models.  I restarted the process with the new model and the model predicted that 252 players will be drafted this year.  This is very unlikely, because the NFL drafts 256 players every year and as we observed, players that didn't participate in one event were still drafted, so there will be false positives in the model.  </p>
+                        <p class="paragraph">Something to note for the record.  Observe <a href="https://github.com/steveThomasTri/2019NFLDraftProject/blob/master/5%20Observing%20False%20Positives.ipynb">5 Observing False Positives</a> and notice the accuracy.  We got a 70.21% accuracy and the reason we obtain this is that previouusly, we deleted rows with NT, LS, and K.  This model is position neutral, so we shouldn't delete those rows.  However, my thinking was flawed and deleting these rows will be done for later models.  I restarted the process with the new model and the model predicted that 252 players will be drafted this year.  This is very unlikely, because the NFL drafts 256 players every year and as we observed, players that didn't participate in one event were still drafted, so there will be false positives in the model.  However, I would like to reduce the false positives. What I didn't consider before before my data science instructor broght this up is different positions require different skills.  In my first model, a quarterback is on the same level as a defensive tackle, and this doesn't make any sense.  A quarterback uses speed to get away from defenders, while a defensive tackle uses strength to power through the offensive linemnen.   And so, the process begins on thinking differently. </p>
+                    </div>
+                </div>
+            </section>
+            <hr class="my-5">
+            <section>
+                <h1>Time to Think Outside the Pocket</h1>
+                <div class="row">
+                    <div class="col-md-12">
+                        <p class="paragraph">Although in our first model we were able to get 70.21% accuracy, the problem is that this model doesn't accurately represent what the coaches are looking for.  Because NFL teams need to fill different positions and different positions require different attributes, the first model is not a fair representation of what is happening in the real world.  It is not enough to think about the measurements of a player, you also have to think about the intangibles of that individual.  You have to put on many hats as a data scientist, such as in this case, a coach, a scout, a GM, an owner, etc.  How do you measure leadership? How do you evaluate how well they interview?  What is their work ethic on and off the field?  More importantly, how would one quantify intangibles?  </p>
                     </div>
                 </div>
             </section>
