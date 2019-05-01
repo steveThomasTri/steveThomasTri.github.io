@@ -529,7 +529,8 @@
                             model and the model predicted that 252 players will be drafted this year. This is very
                             unlikely, because the NFL drafts 256 players every year and as we observed, players that
                             didn't participate in one event were still drafted, so there will be false positives in the
-                            model. However, I would like to reduce the false positives. What I didn't consider before my data science instructor brought this up is different positions require different
+                            model. However, I would like to reduce the false positives. What I didn't consider before my
+                            data science instructor brought this up is different positions require different
                             skills. In my first model, a quarterback is on the same level as a defensive tackle, and
                             this doesn't make any sense. A quarterback uses speed to get away from defenders, while a
                             defensive tackle uses strength to power through the offensive linemen. And so, the process
@@ -590,7 +591,8 @@
 
                         <p class='paragraph'>From suggestions that were given to me. I have decided that instead of one
                             model, I would have a model for each group. With each model, determine what combine events
-                            are important in an attempt to reduce noise and make the models more of like what to look for
+                            are important in an attempt to reduce noise and make the models more of like what to look
+                            for
                             in those positions. So starting from our 8 original features, let's see if there are some
                             features that we would like to add, or delete.</p>
                     </div>
@@ -601,7 +603,688 @@
                 <h1>Feature Selection/Feature Engineering</h1>
                 <div class="row">
                     <div class="col-md-12">
+                        <p class="paragraph"><strong>Feature Engineering</strong> is taking the data that you have
+                            already to generate new features. Sometimes it is an attempt to explain features not
+                            considered in the model. For example, the feature that we want to add is BMI (Body Mass
+                            Index) we can use the prospect's height and weight to generate what their BMI is so that we
+                            may be able to predict if someone is drafted. You can see that you can generate any number
+                            of additional features based on the data you have, but the risk is that you are going to
+                            introduce unnecessary noise to your model. Feature engineering is an art and a science, so
+                            the only way to know what constitutes a good feature is by experience. </p>
 
+                        <p class="paragraph">What we will do is to categorize the data that we have into ten groups with
+                            ten separate csvs. These ten categories are:</p>
+                        <ul>
+                            <li>Offensive Line (OL) consists of OT, OG, C, OL</li>
+                            <li>Defensive Line (DL) consists of DT, DE, DL</li>
+                            <li>Running Backs (RB) consists of RB, HB, FB</li>
+                            <li>Line Backers (LB) consists of OLB, ILB, LB, DB</li>
+                            <li>Tight Ends (TE)</li>
+                            <li>Cornerbacks (CB)</li>
+                            <li>Wide Receivers (WR)</li>
+                            <li>Safety (S) consists of FS, SS</li>
+                            <li>Quarterbacks (QB)</li>
+                            <li>Punters (P)</li>
+                        </ul>
+                        <p class="paragraph">So let's revise our question:</p>
+                        <h4 class="border border-success p-md-2"><strong>Based on an NFL draft prospects height, weight,
+                                and the results that they posted in the NFL combine, will this person be
+                                drafted if we group them by position?</strong></h4>
+                        <p class="paragraph">So we get away from a position neutral model to a model based on a players
+                            declared position in the combine. We start off separating each player in the training data
+                            by the categories. We will be observing the data of each group. <a href=''>6 Splitting into
+                                categories</a> is the notebook that makes those ten csvs in the TrainTest Folder. Within
+                            the TrainTest folder, we make ten folders that coorespond to the groups. </p>
+
+                        <p class='paragraph'>For each folder, there will be three notebooks and a csv file of training
+                            data for that group. We will take the WR folder as an example as to how each group will be
+                            formatted for the purposes of this article</p>
+
+                        <h5>Wide Receiver</h5>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <table class="table table-striped">
+                                    <tr>
+                                        <td>Number of Records</td>
+                                        <td>806</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Initial Accuracy</td>
+                                        <td>67.36%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Accuracy if some features are removed</td>
+                                        <td>72.31%</td>
+                                        <td>Weight, Vertical Leap, Broad Jump </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="3">Features Added: College yards, Colled Receptions, College
+                                            touchdowns, is All-American, is Heisman, has awards, has bling</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Accuracy with certain features removed</td>
+                                        <td>75.21%</td>
+                                        <td>Weight, Vertical Leap, Shuttle Run, 3 cone, College receptions, College
+                                            touchdowns, has bling, has awards </td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div class="col-md-6">
+                                <table class="table table-striped">
+                                    <tr>
+                                        <td>Final Accuracy</td>
+                                        <td>75.21%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Learning Rate</td>
+                                        <td>10%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>n_estimators</td>
+                                        <td>100</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Max Depth</td>
+                                        <td>3</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Minimun Child Weight</td>
+                                        <td>1</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Gamma</td>
+                                        <td>0</td>
+                                    </tr>
+                                    <tr>
+                                        <td>ColSample_ByTree</td>
+                                        <td>1</td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                        <p class="paragraph">So we will breakdown the two tables above. Starting from the left, Using
+                            the original 8 features, we get the base accuracy and a possible accuracy if any of the 8
+                            features are removed. The next line is any features that we will add. For different groups,
+                            there will be certain featurs that make sense to add like wide receivers receiving yards,
+                            touchdowns, that do not for a defense tackle. After we add more features, we run the model
+                            again and this time we get the highest accuracy attainable if we do not do any feature
+                            tuning and any features that we will remove.</p>
+
+                        <p class='paragraph'>The second table is once we get the maximum accuracy, we will be doing
+                            hyperparameter tuning to see if we can get the model to perform better. There are 6
+                            parameters that we have considered tuning:</p>
+
+                        <ul>
+                            <li>Learning Rate - In each step, as new data is taken in, the model will change how certain
+                                features are weighed in each step. The larger the value, the more rows it learns
+                                quickly.</li>
+                            <li>n_estimators - Number of decision trees</li>
+                            <li>Max Depth - How deep is each tree</li>
+                            <li>Minimun Child Weight - A larger value makes the model more conservative</li>
+                            <li>Gamma - Minimum loss reduction required to make further partitions on a leaf node of the
+                                tree.</li>
+                            <li>Colsample_bytree - subsample ratio of columns when constructing each tree.</li>
+                        </ul>
+
+                        <p class='paragraph'>For more information on each of these parameters, consult the
+                            documentation. <a href="https://xgboost.readthedocs.io/en/latest/parameter.html">XGBoost
+                                Parameters</a></p>
+
+                        <p class="paragraph">Here is a breakdown of what each notebook was used for:</p>
+                        <ul>
+                            <li>The first notebook establishes the model from the base configurations and finds the
+                                maximum accuracy if the original 8 features are considered.</li>
+                            <li>Part II Notebook uses splinter to obtain additional data based on the group. It goes
+                                through each name and fills in the data and if they got awards. College stats are left
+                                blank if none exists, but awards are always populated.</li>
+                            <li>Part III notebook gets the base accuracy when we add features from part II. Then we find
+                                the maximum accuracy if certain features are removed. Verify that removing those
+                                features give us the maximum accuracy. Then we implement hyperparameter tuning using the
+                                6 parameters through brute force. There are 14,400 different combinations to check for.
+                            </li>
+                        </ul>
+                        <p class='paragraph'>Here are the other 9 groups and their models:</p>
+
+                        <h5>Cornerbacks</h5>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <table class="table table-striped">
+                                    <tr>
+                                        <td>Number of Records</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Initial Accuracy</td>
+                                        <td>%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Accuracy if some features are removed</td>
+                                        <td>%</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="3">Features Added:</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Accuracy with certain features removed</td>
+                                        <td>%</td>
+                                        <td></td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div class="col-md-6">
+                                <table class="table table-striped">
+                                    <tr>
+                                        <td>Final Accuracy</td>
+                                        <td>%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Learning Rate</td>
+                                        <td>%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>n_estimators</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Max Depth</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Minimun Child Weight</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Gamma</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td>ColSample_ByTree</td>
+                                        <td></td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                        <h5></h5>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <table class="table table-striped">
+                                    <tr>
+                                        <td>Number of Records</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Initial Accuracy</td>
+                                        <td>%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Accuracy if some features are removed</td>
+                                        <td>%</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="3">Features Added:</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Accuracy with certain features removed</td>
+                                        <td>%</td>
+                                        <td></td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div class="col-md-6">
+                                <table class="table table-striped">
+                                    <tr>
+                                        <td>Final Accuracy</td>
+                                        <td>%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Learning Rate</td>
+                                        <td>%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>n_estimators</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Max Depth</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Minimun Child Weight</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Gamma</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td>ColSample_ByTree</td>
+                                        <td></td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                        <h5></h5>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <table class="table table-striped">
+                                    <tr>
+                                        <td>Number of Records</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Initial Accuracy</td>
+                                        <td>%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Accuracy if some features are removed</td>
+                                        <td>%</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="3">Features Added:</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Accuracy with certain features removed</td>
+                                        <td>%</td>
+                                        <td></td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div class="col-md-6">
+                                <table class="table table-striped">
+                                    <tr>
+                                        <td>Final Accuracy</td>
+                                        <td>%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Learning Rate</td>
+                                        <td>%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>n_estimators</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Max Depth</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Minimun Child Weight</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Gamma</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td>ColSample_ByTree</td>
+                                        <td></td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                        <h5></h5>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <table class="table table-striped">
+                                    <tr>
+                                        <td>Number of Records</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Initial Accuracy</td>
+                                        <td>%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Accuracy if some features are removed</td>
+                                        <td>%</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="3">Features Added:</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Accuracy with certain features removed</td>
+                                        <td>%</td>
+                                        <td></td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div class="col-md-6">
+                                <table class="table table-striped">
+                                    <tr>
+                                        <td>Final Accuracy</td>
+                                        <td>%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Learning Rate</td>
+                                        <td>%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>n_estimators</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Max Depth</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Minimun Child Weight</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Gamma</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td>ColSample_ByTree</td>
+                                        <td></td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                        <h5></h5>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <table class="table table-striped">
+                                    <tr>
+                                        <td>Number of Records</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Initial Accuracy</td>
+                                        <td>%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Accuracy if some features are removed</td>
+                                        <td>%</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="3">Features Added:</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Accuracy with certain features removed</td>
+                                        <td>%</td>
+                                        <td></td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div class="col-md-6">
+                                <table class="table table-striped">
+                                    <tr>
+                                        <td>Final Accuracy</td>
+                                        <td>%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Learning Rate</td>
+                                        <td>%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>n_estimators</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Max Depth</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Minimun Child Weight</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Gamma</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td>ColSample_ByTree</td>
+                                        <td></td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                        <h5></h5>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <table class="table table-striped">
+                                    <tr>
+                                        <td>Number of Records</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Initial Accuracy</td>
+                                        <td>%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Accuracy if some features are removed</td>
+                                        <td>%</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="3">Features Added:</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Accuracy with certain features removed</td>
+                                        <td>%</td>
+                                        <td></td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div class="col-md-6">
+                                <table class="table table-striped">
+                                    <tr>
+                                        <td>Final Accuracy</td>
+                                        <td>%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Learning Rate</td>
+                                        <td>%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>n_estimators</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Max Depth</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Minimun Child Weight</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Gamma</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td>ColSample_ByTree</td>
+                                        <td></td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                        <h5></h5>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <table class="table table-striped">
+                                    <tr>
+                                        <td>Number of Records</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Initial Accuracy</td>
+                                        <td>%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Accuracy if some features are removed</td>
+                                        <td>%</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="3">Features Added:</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Accuracy with certain features removed</td>
+                                        <td>%</td>
+                                        <td></td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div class="col-md-6">
+                                <table class="table table-striped">
+                                    <tr>
+                                        <td>Final Accuracy</td>
+                                        <td>%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Learning Rate</td>
+                                        <td>%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>n_estimators</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Max Depth</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Minimun Child Weight</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Gamma</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td>ColSample_ByTree</td>
+                                        <td></td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                        <h5></h5>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <table class="table table-striped">
+                                    <tr>
+                                        <td>Number of Records</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Initial Accuracy</td>
+                                        <td>%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Accuracy if some features are removed</td>
+                                        <td>%</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="3">Features Added:</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Accuracy with certain features removed</td>
+                                        <td>%</td>
+                                        <td></td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div class="col-md-6">
+                                <table class="table table-striped">
+                                    <tr>
+                                        <td>Final Accuracy</td>
+                                        <td>%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Learning Rate</td>
+                                        <td>%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>n_estimators</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Max Depth</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Minimun Child Weight</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Gamma</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td>ColSample_ByTree</td>
+                                        <td></td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                        <h5></h5>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <table class="table table-striped">
+                                    <tr>
+                                        <td>Number of Records</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Initial Accuracy</td>
+                                        <td>%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Accuracy if some features are removed</td>
+                                        <td>%</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="3">Features Added:</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Accuracy with certain features removed</td>
+                                        <td>%</td>
+                                        <td></td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div class="col-md-6">
+                                <table class="table table-striped">
+                                    <tr>
+                                        <td>Final Accuracy</td>
+                                        <td>%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Learning Rate</td>
+                                        <td>%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>n_estimators</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Max Depth</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Minimun Child Weight</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Gamma</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td>ColSample_ByTree</td>
+                                        <td></td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </section>
