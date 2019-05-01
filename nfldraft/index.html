@@ -84,16 +84,18 @@
                 <form class="form-inline">
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item active">
-                            <a  href="https://www.linkedin.com/in/steve-thomas-91685599/" class="btn-floating btn-lg btn-li primary-color" type="button" role="button"><i
+                            <a href="https://www.linkedin.com/in/steve-thomas-91685599/"
+                                class="btn-floating btn-lg btn-li primary-color" type="button" role="button"><i
                                     class="fab fa-linkedin-in btnn-white"></i></a>
                         </li>
                         <li class="nav-item">
-                            <a href="https://github.com/steveThomasTri" class="btn-floating btn-lg btn-git primary-color" type="button" role="button"><i
+                            <a href="https://github.com/steveThomasTri"
+                                class="btn-floating btn-lg btn-git primary-color" type="button" role="button"><i
                                     class="fab fa-github btnn-white"></i></a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="btn-floating btn-lg btn-email primary-color" type="button" role="button"><i
-                                    class="fas fa-envelope btnn-white"></i></a>
+                            <a href="#" class="btn-floating btn-lg btn-email primary-color" type="button"
+                                role="button"><i class="fas fa-envelope btnn-white"></i></a>
                         </li>
                     </ul>
                 </form>
@@ -152,15 +154,15 @@
                         <p class="paragraph">Then I went into exploring machine learning packages from python that you
                             can use. Many packages are out there like sci-kit learn, tensorflow, keras, xgboost, etc. I
                             knew that I wanted to do a classification problem, basically answering a Yes or No question,
-                            but which one would I want to do? What problem was most interesing to me?</p>
+                            but which one would I want to do? What problem was most interesting to me?</p>
 
-                        <p class="paragraph">A little backgroud experience of the python technologies that I have used.
+                        <p class="paragraph">A little background experience of the python technologies that I have used.
                             I used BeautifulSoup, selenium/splinter for automation, flask for backend development. For
                             data visualization, jupyter notebook, pandas, matplotlib. For machine learning, keras,
                             sci-kit learn, tensorflow. It was time to put these to use and see if I can find a problem
                             and attempt to solve. In our class, there was a lot of football talk about the Cleveland
                             Browns this year and how they could be a playoff team. So I was thinking, how team select
-                            players adn what is the process that prospects go through. There are "analysts" and
+                            players and what is the process that prospects go through. There are "analysts" and
                             "experts" that predict where would players go, when would they go off the board in a draft,
                             what round are they picked. Although these questions are great for an advanced model, I just
                             want to predict whether a player would get drafted. And so, the data science problem was
@@ -188,7 +190,7 @@
                             Day 2 consists of rounds 2 and 3. The conclusion of the draft is day 3 for rounds 4 to 7.
                             There are 32 teams in the NFL and each team gets a pick for each round. A total of 224
                             people are drafted plus 32 additional picks for a total of 256 players that are drafted.
-                            This picks are compulsorary unless they trade. For further reading on how the draft works
+                            These picks are compulsory unless they trade. For further reading on how the draft works
                             with the twists and turns, read the NFL's article titled <a
                                 href="https://operations.nfl.com/the-players/the-nfl-draft/the-rules-of-the-draft/">The
                                 Rules of the draft</a></p>
@@ -206,18 +208,18 @@
                             <li>Bench Press - The weights are set at 225 lbs. and the person has to do as many reps as
                                 possible. This is an indicator of their strength. </li>
                             <li>Vertical Leap - The prospect starts standing, they will jump as high as they can to slap
-                                a wall. This is an indicator of their lower body strenght and power</li>
-                            <li>Broad Jump - The prosepect starts flat footed and then they leap out in front. This is
+                                a wall. This is an indicator of their lower body strength and power</li>
+                            <li>Broad Jump - The prospect starts flat footed and then they leap out in front. This is
                                 an indicator of their lower body strength and power. </li>
                             <li>Three Cone Relay - The course is an L shaped. They will start at a cone, run to the
                                 middle cone, run back to the start, then run around both cones before sprinting to the
                                 start. This is an indicator of how a prospect can quickly shift directions at high
                                 speed.</li>
                             <li>20 yard Shuttle Run - A prospect starts at a line, sprints 5 yards forward, sprints 10
-                                yards back, and then sprints 5 yards forward to compolete the run. This is an indicator
+                                yards back, and then sprints 5 yards forward to complete the run. This is an indicator
                                 of the prospects ability to change direction and his lateral quickness.</li>
                             <li>40 yard dash - A prospect sprints down 40 yards as quick as possible. This is an
-                                indication of their explosivemenss, speed, burst, and acceleration. </li>
+                                indication of their explosiveness, speed, burst, and acceleration. </li>
                         </ol>
                         <p class="paragraph">This is the data that we will be testing once all of the models are
                             complete. We have our test data, but now we need data to train through data acquisition.
@@ -261,14 +263,14 @@
                         <p class="paragraph"><em>*A moment of retrospect* In gathering the data, you will notice that I
                                 used splinter to gather all of the data for each year. If I had to do this process all
                                 over again, It is much easier to use the pandas read_html function as it is much quicker
-                                to get the data and then each year i can concatenate the dataframes. Also, there may
+                                to get the data and then each year I can concatenate the dataframes. Also, there may
                                 have been two key columns that were missing, hand size and arm length. These factors
                                 could have affected any future models that I might have made.</em></p>
 
                         <p class="paragraph">Also, in 2015 the data accounted for 700 prospects in the NFL combine for
                             that year. This is caused to additional data being added for that year. We cannot tell the
                             reason as to why this occurred, but we cross-checked the number of combine participants for
-                            2015 and most of the sources have the number at around 300 individuals. So wel will need to
+                            2015 and most of the sources have the number at around 300 individuals. So well will need to
                             remove those rows that are not in the combine. We will be going to the <a
                                 href="https://www.sbnation.com/nfl/2015/2/6/7993765/nfl-combine-2015-invite-list">SB
                                 Nation website</a>
@@ -283,10 +285,10 @@
                             drafted. All that we are looking for is if the player is on the list, then we consider them
                             drafted. Going to the website, I used splinter to gather a list of each player. And those
                             players are stored in a dataframe called drafted. Storing the name, year, and a 1 for
-                            drafted. Once I have this dataframe, I will merge this dataframe with eht combine
+                            drafted. Once I have this dataframe, I will merge this dataframe with the combine
                             information that I have previously made and merge it on the name and the year, because it is
-                            possible that there maybe players with the same name in different years. For the column
-                            drafed, I changed the values of 1 to Y and 0 to N to get the final csv file with 6,300 rows
+                            possible that there may be players with the same name in different years. For the column
+                            drafted, I changed the values of 1 to Y and 0 to N to get the final csv file with 6,300 rows
                             and 13 columns. The completed file is called cleaned_NFL_combine_97_to_2018.csv. We now have
                             the necessary data that has been cleaned, we will now go into analyzing our data and see
                             what we can learn and any trends that we can observe.</p>
@@ -401,12 +403,12 @@
                             ignore these for now. The feature with the highest missing values is the 3 cone drill with
                             26.3%. I have read in some articles that if there are 50% missing values, that column should
                             be dropped. Other articles are in the range of 20-50%, depending on what you are trying to
-                            model. Because each event is important for certain positions moreso than the next and the
+                            model. Because each event is important for certain positions more so than the next and the
                             fact that he missing values fall short of the 50% threshold, we will keep all of the columns
                             and make a decision on whether to impute missing values or not. </p>
 
                         <p class="paragraph">For 2 Data Analysis, I was looking for correlations of two variables. My
-                            thought process at the time was that if i can find relationaships between two variables, I
+                            thought process at the time was that if I can find relationships between two variables, I
                             can best understand my data better. I have got the following strong correlations</p>
 
                         <ul>
@@ -419,7 +421,7 @@
                         <p class="paragraph">In notebook <a href="#">2b Exploratory Data Analysis</a> I have also done
                             an analysis on each of the 6 events to see if there is anything else that I can learn from
                             my data. What I wanted to do is to see if there is a flag for certain data. For example, We
-                            will look at the first table where i grouped by position and whether a person is drafted.
+                            will look at the first table where I grouped by position and whether a person is drafted.
                             Wide Receivers need to be fast so it makes sense that we look at how they run the 40 yard
                             dash. People that were drafted had times between 4.21s and 4.76s. People that were not
                             drafted ran between 4.31s and 4.85 seconds. My thought was that any wide receivers that ran
@@ -447,7 +449,7 @@
                             have an accuracy of 69.60%. Which is ok, but I think that we can do better. The next thing
                             that we will do is to predict the 2019 NFL draft with draftsite.com to see where the
                             differences are. We have scraped the results of the 2019 NFL combine and we ended up with
-                            309 people to test, with aour assumptions of competing in at least one event. However it is
+                            309 people to test, with our assumptions of competing in at least one event. However it is
                             important to know that none of the positions are taken into consideration. Everyone is
                             treated equally.</p>
 
@@ -456,7 +458,7 @@
                             rows that had positions of NT (nose tackle), K (kicker), and LS (long snapper), because
                             those positions are not considered in our testing data, we can drop those positions. The
                             model that was put forth in this notebook was a position neutral model. We dropped the year,
-                            name, college, and position to test our features. For future model testing, it is imperaitve
+                            name, college, and position to test our features. For future model testing, it is imperative
                             that we use the same seed and test_sizes for all models. Later on, we will go over the many
                             different parameters that we will tune, but for now, let's get our first predictions.</p>
 
@@ -471,7 +473,7 @@
                                 the Combine Results</a>, We used the splinter dependency to obtain the combine results
                             from the <a href="http://www.nfl.com/combine/">Official NFL Combine Site</a>. We have to
                             navigate to each event as there is no page with all of the stats. We get the names of all
-                            the people in the combine, then anohter for loop gets the stats from each event. Splinter
+                            the people in the combine, then another for loop gets the stats from each event. Splinter
                             searches for a next button and scrapes the results, if it finds the next button, splinter
                             gets the results, if not, splinter moves on to select the next event. After all events are
                             put in a dataframe, all empty cells will be replaced with np.nan. Then we have to turn
@@ -483,12 +485,12 @@
                                 site had all of the players including the college, conference, arm length, and hand
                                 length. We may analyze different conferences to determine if some conferences are
                                 considered moreso over others. Also, the arm length and the hang length might have
-                                determined if players get picked often.</em>Once we got all of the data, we stored the
+                                determined if players get picked often.</em> Once we got all of the data, we stored the
                             data in two files. First, testcombine2019.csv and prospectinfo.csv. </p>
 
                         <p class="paragraph">Then I combined both files using the <a
                                 href="https://github.com/steveThomasTri/2019NFLDraftProject/blob/master/combining%20data.ipynb">combining
-                                data </a> notebook by merging both files. Some column names weer changed to reflect the
+                                data </a> notebook by merging both files. Some column names were changed to reflect the
                             events of the combine. Also for the height, I converted it to inches. Through Microsoft
                             Excel, I rearranged the columns and resaved the 2019Testingdata.csv file. </p>
 
@@ -512,13 +514,26 @@
 
                         <p class="paragraph">Our model has 27 out of 29 players drafted. The two misses were Dwayne
                             Haskins and Cody Ford. One of the questions that I have is that my model fails to draft
-                            Dwayne Haskins and Cody Ford. Why is this? We may beable to answer the question at a later
+                            Dwayne Haskins and Cody Ford. Why is this? We may be able to answer the question at a later
                             point. This is great, however
                             there is the possibility of false positives here. The predictions are airing on the side of
                             more people being drafted. So there needs to be a process to change the parameters and why
                             are we changing them.</p>
 
-                        <p class="paragraph">Something to note for the record.  Observe <a href="https://github.com/steveThomasTri/2019NFLDraftProject/blob/master/5%20Observing%20False%20Positives.ipynb">5 Observing False Positives</a> and notice the accuracy.  We got a 70.21% accuracy and the reason we obtain this is that previouusly, we deleted rows with NT, LS, and K.  This model is position neutral, so we shouldn't delete those rows.  However, my thinking was flawed and deleting these rows will be done for later models.  I restarted the process with the new model and the model predicted that 252 players will be drafted this year.  This is very unlikely, because the NFL drafts 256 players every year and as we observed, players that didn't participate in one event were still drafted, so there will be false positives in the model.  However, I would like to reduce the false positives. What I didn't consider before before my data science instructor broght this up is different positions require different skills.  In my first model, a quarterback is on the same level as a defensive tackle, and this doesn't make any sense.  A quarterback uses speed to get away from defenders, while a defensive tackle uses strength to power through the offensive linemnen.   And so, the process begins on thinking differently. </p>
+                        <p class="paragraph">Something to note for the record. Observe <a
+                                href="https://github.com/steveThomasTri/2019NFLDraftProject/blob/master/5%20Observing%20False%20Positives.ipynb">5
+                                Observing False Positives</a> and notice the accuracy. We got a 70.21% accuracy and the
+                            reason we obtain this is that previously, we deleted rows with NT, LS, and K. This model is
+                            position neutral, so we shouldn't delete those rows. However, my thinking was flawed and
+                            deleting these rows will be done for later models. I restarted the process with the new
+                            model and the model predicted that 252 players will be drafted this year. This is very
+                            unlikely, because the NFL drafts 256 players every year and as we observed, players that
+                            didn't participate in one event were still drafted, so there will be false positives in the
+                            model. However, I would like to reduce the false positives. What I didn't consider before my data science instructor brought this up is different positions require different
+                            skills. In my first model, a quarterback is on the same level as a defensive tackle, and
+                            this doesn't make any sense. A quarterback uses speed to get away from defenders, while a
+                            defensive tackle uses strength to power through the offensive linemen. And so, the process
+                            begins on thinking differently. </p>
                     </div>
                 </div>
             </section>
@@ -527,7 +542,66 @@
                 <h1>Time to Think Outside the Pocket</h1>
                 <div class="row">
                     <div class="col-md-12">
-                        <p class="paragraph">Although in our first model we were able to get 70.21% accuracy, the problem is that this model doesn't accurately represent what the coaches are looking for.  Because NFL teams need to fill different positions and different positions require different attributes, the first model is not a fair representation of what is happening in the real world.  It is not enough to think about the measurements of a player, you also have to think about the intangibles of that individual.  You have to put on many hats as a data scientist, such as in this case, a coach, a scout, a GM, an owner, etc.  How do you measure leadership? How do you evaluate how well they interview?  What is their work ethic on and off the field?  More importantly, how would one quantify intangibles?  </p>
+                        <p class="paragraph">Although in our first model we were able to get 70.21% accuracy, the
+                            problem is that this model doesn't accurately represent what the coaches are looking for.
+                            Because NFL teams need to fill different positions and different positions require different
+                            attributes, the first model is not a fair representation of what is happening in the real
+                            world. It is not enough to think about the measurements of a player, you also have to think
+                            about the intangibles of that individual. You have to put on many hats as a data scientist,
+                            such as in this case, a coach, a scout, a GM, an owner, etc. How do you measure leadership?
+                            How do you evaluate how well they interview? What is their work ethic on and off the field?
+                            More importantly, how would one quantify intangibles? For some of these intangibles, they
+                            are not available to the public and thus it may be impossible to measure like interviews,
+                            white board test, Wonderlic test. One word about the Wonderlic test is that some of these
+                            scores are leaked to the public and we cannot verify the validity of these scores. Here is a
+                            list of factors that were considered and not considered. Keep in mind that the items not
+                            considered may not be an exhaustive list.</p>
+
+                        <h5>Factors that I have considered:</h5>
+                        <ul>
+                            <li>Prospect's height and weight</li>
+                            <li>Prospect's measurements in the 6 events</li>
+                            <li>Prospect's college stats</li>
+                            <li>If any awards were received (Heisman, all-American)</li>
+                            <li>Prospect's position</li>
+                        </ul>
+                        <h5>Factors that I have NOT considered:</h5>
+                        <ul>
+                            <li>Prospect's arm length and hand length</li>
+                            <li>Prospect's college and conference</li>
+                            <li>Prospect's interviews, white board test, and Wonderlic test</li>
+                            <li>How tough was their conference</li>
+                            <li>Their grit (leadership, work ethic, toughness, football intelligence)</li>
+                            <li>Different teams needs to fill certain positions</li>
+                            <li>Any tapes that scouts looked at to assess their playing ability</li>
+                            <li>And much more...</li>
+                        </ul>
+
+                        <p class='paragraph'>There are other factors that were not considered and I have a list of two
+                            articles that outline these intangibles. The first article is from <a
+                                href='https://www.theringer.com/2018/4/12/17227604/nfl-draft-intangibles-scouting-evaluation'>The
+                                Ringer</a> one year ago. This article outlines how scouts evaluate qualities like poise,
+                            confidence, grit, etc. The second article is a starting point on how the <a
+                                href="https://bleacherreport.com/articles/1686933-how-do-scouts-break-down-nfl-safety-prospects">Bleacher
+                                Report</a> breaks down certain positions. The article starts off with what scouts look
+                            for in a safety. There are more links in other positions if you are interested. There are
+                            other articles out there, but these are the two main ones to get a general understanding on
+                            other factors than just raw numbers. </p>
+
+                        <p class='paragraph'>From suggestions that were given to me. I have decided that instead of one
+                            model, I would have a model for each group. With each model, determine what combine events
+                            are important in an attempt to reduce noise and make the models more of like what to look for
+                            in those positions. So starting from our 8 original features, let's see if there are some
+                            features that we would like to add, or delete.</p>
+                    </div>
+                </div>
+            </section>
+            <hr class="my-5">
+            <section>
+                <h1>Feature Selection/Feature Engineering</h1>
+                <div class="row">
+                    <div class="col-md-12">
+
                     </div>
                 </div>
             </section>
@@ -574,7 +648,9 @@
                         <strong>Steve Thomas</strong>
                     </h6>
                     <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
-                    <p>I am also an innovative problem solver helping organizations overcome their most pressing challenges. I have strong skills in web development, communication, and leadership, and I enjoy opportunities that challenge me to make a meaningful impact.</p>
+                    <p>I am also an innovative problem solver helping organizations overcome their most pressing
+                        challenges. I have strong skills in web development, communication, and leadership, and I enjoy
+                        opportunities that challenge me to make a meaningful impact.</p>
                 </div>
                 <!--/.First column-->
 
