@@ -6,10 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Steve Thomas Portfolio</title>
-    <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
-    <link rel="manifest" href="../site.webmanifest">
+    <link rel="apple-touch-icon" sizes="180x180" href="../../apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+    <link rel="manifest" href="../../site.webmanifest">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
     <!-- Bootstrap core CSS -->
@@ -25,7 +25,7 @@
         }
 
         #intro {
-            background: url("../NFL_Draft.jpg")no-repeat center center fixed;
+            background: url("../../NFL_Draft.jpg")no-repeat center center fixed;
             -webkit-background-size: cover;
             -moz-background-size: cover;
             -o-background-size: cover;
@@ -50,7 +50,7 @@
 <body>
     <header>
         <nav class="navbar navbar-expand-lg navbar-dark primary-color fixed-top">
-            <a class="navbar-brand" href="/"><img src="../android-chrome-192x192.png" style="width:40px" /></a>
+            <a class="navbar-brand" href="/"><img src="../../android-chrome-192x192.png" style="width:40px" /></a>
 
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav"
                 aria-controls="basicExampleNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -118,9 +118,8 @@
                             <hr class="hr-light">
 
                             <!-- Description -->
-                            <h4 class="white-text my-4">Taking you through my methodology of whether or not this year's
-                                NFL prospects will be drafted.</h4>
-                            <a href="./introduction" class="btn btn-outline-white">Introduction</a>
+                            <h4 class="white-text my-4">Part 2: The Process of the NFL Draft</h4>
+                            <h4 class="white-text my-4">An overview of the process from the prospects at the NFL combine to picking players at the draft</h4>
                         </div>
                     </div>
                 </div>
@@ -132,9 +131,53 @@
         <div class="container">
             <!-- Section-->
             <section>
+                <div class="row">
+                    <div class="col-md-12">
+                        <p class="paragraph">Before we get into the data acquisition, A word on how the draft works. In
+                            late April, for three days, Americans are glued to watch which players will be drafted to
+                            which teams. Usually day 1 has the most talented prospects and that generates the most buzz.
+                            Day 2 consists of rounds 2 and 3. The conclusion of the draft is day 3 for rounds 4 to 7.
+                            There are 32 teams in the NFL and each team gets a pick for each round. A total of 224
+                            people are drafted plus 32 additional picks for a total of 256 players that are drafted.
+                            These picks are compulsory unless they trade. For further reading on how the draft works
+                            with the twists and turns, read the NFL's article titled <a
+                                href="https://operations.nfl.com/the-players/the-nfl-draft/the-rules-of-the-draft/">The
+                                Rules of the draft</a></p>
 
+                        <p class="paragraph">But what is a draft without prospects. That is where coaches get a look at
+                            how athletic each prospect is. How well they interview with coaches. How well they test and
+                            other factors. Two months earlier, 338 prospects were invited to Indianapolis. The link of
+                            all of the invitees is <a
+                                href="https://www.cbssports.com/nfl/draft/news/2019-nfl-draft-full-list-of-338-prospects-invited-to-nfl-scouting-combine-including-kyler-murray/">here</a>.
+                        </p>
+
+                        <p class="paragraph">Most of the prospects will compete in at least one of 6 testing events in
+                            the combine:</p>
+                        <ol>
+                            <li>Bench Press - The weights are set at 225 lbs. and the person has to do as many reps as
+                                possible. This is an indicator of their strength. </li>
+                            <li>Vertical Leap - The prospect starts standing, they will jump as high as they can to slap
+                                a wall. This is an indicator of their lower body strength and power</li>
+                            <li>Broad Jump - The prospect starts flat footed and then they leap out in front. This is
+                                an indicator of their lower body strength and power. </li>
+                            <li>Three Cone Relay - The course is an L shaped. They will start at a cone, run to the
+                                middle cone, run back to the start, then run around both cones before sprinting to the
+                                start. This is an indicator of how a prospect can quickly shift directions at high
+                                speed.</li>
+                            <li>20 yard Shuttle Run - A prospect starts at a line, sprints 5 yards forward, sprints 10
+                                yards back, and then sprints 5 yards forward to complete the run. This is an indicator
+                                of the prospects ability to change direction and his lateral quickness.</li>
+                            <li>40 yard dash - A prospect sprints down 40 yards as quick as possible. This is an
+                                indication of their explosiveness, speed, burst, and acceleration. </li>
+                        </ol>
+                        <p class="paragraph">This is the data that we will be testing once all of the models are
+                            complete. We have our test data, but now we need data to train through data acquisition.
+                        </p>
+                    </div>
+                </div>
             </section>
             <!--./Section-->
+            <hr class="my-5">
         </div>
         <div class="container">
             <div class="row">
@@ -142,17 +185,9 @@
                     <div class="card">
                         <div class="card-body">
                             <h5 class="card-title text-center">Part 1: Introduction</h5>
-                            <p class="card-text">Insight as to what the goal of this project is and why did I choose the NFL Draft?</p>
+                            <p class="card-text">Insight as to what the goal of this project is and why did I choose the
+                                NFL Draft?</p>
                             <a class="btn card-link d-flex justify-content-center" href="./introduction">GO</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 videowall">
-                    <div class="card">
-                        <div class="card-body">
-                            <h5 class="card-title text-center">Part 2: The NFL Draft</h5>
-                            <p class="card-text">How does the NFL Draft work from the combine to the drafting stage</p>
-                            <a class="btn card-link d-flex justify-content-center" href="/process">GO</a>
                         </div>
                     </div>
                 </div>
@@ -178,7 +213,8 @@
                     <div class="card">
                         <div class="card-body">
                             <h5 class="card-title text-center">Part 5: First Model</h5>
-                            <p class="card-text">What are the results of doing our first model and possible pitfalls.</p>
+                            <p class="card-text">What are the results of doing our first model and possible pitfalls.
+                            </p>
                             <a class="btn card-link d-flex justify-content-center" href="/firstattempt">GO</a>
                         </div>
                     </div>
@@ -187,7 +223,8 @@
                     <div class="card">
                         <div class="card-body">
                             <h5 class="card-title text-center">Part 6: Outside Pocket</h5>
-                            <p class="card-text">What are the factors to consider or haven't considered in improving our model</p>
+                            <p class="card-text">What are the factors to consider or haven't considered in improving our
+                                model</p>
                             <a class="btn card-link d-flex justify-content-center" href="/outsidepocket">GO</a>
                         </div>
                     </div>
@@ -223,7 +260,8 @@
                     <div class="card">
                         <div class="card-body">
                             <h5 class="card-title text-center">Part 10: Conclusions</h5>
-                            <p class="card-text">A post-mortem on what I hav learned about machine learning in general.</p>
+                            <p class="card-text">A post-mortem on what I hav learned about machine learning in general.
+                            </p>
                             <a class="btn card-link d-flex justify-content-center" href="/conclusion">GO</a>
                         </div>
                     </div>
@@ -231,6 +269,7 @@
             </div>
         </div>
     </main>
+    <hr class="my-5">
     <!-- Footer -->
     <!--Footer-->
     <footer class="page-footer unique-color-dark">

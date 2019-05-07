@@ -6,10 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Steve Thomas Portfolio</title>
-    <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
-    <link rel="manifest" href="../site.webmanifest">
+    <link rel="apple-touch-icon" sizes="180x180" href="../../apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+    <link rel="manifest" href="../../site.webmanifest">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
     <!-- Bootstrap core CSS -->
@@ -25,7 +25,7 @@
         }
 
         #intro {
-            background: url("../NFL_Draft.jpg")no-repeat center center fixed;
+            background: url("../../NFL_Draft.jpg")no-repeat center center fixed;
             -webkit-background-size: cover;
             -moz-background-size: cover;
             -o-background-size: cover;
@@ -118,9 +118,8 @@
                             <hr class="hr-light">
 
                             <!-- Description -->
-                            <h4 class="white-text my-4">Taking you through my methodology of whether or not this year's
-                                NFL prospects will be drafted.</h4>
-                            <a href="./introduction" class="btn btn-outline-white">Introduction</a>
+                            <h4 class="white-text my-4">Part 1: Introduction</h4>
+                            <h4 class="white-text my-4">Answering questions as to why I am machine learning the NFL Draft</h4>
                         </div>
                     </div>
                 </div>
@@ -130,21 +129,64 @@
     </header>
     <main class="mt-5">
         <div class="container">
-            <section>
-
+            <!-- Section-->
+            <section class="text-center">
+                <div class="row d-flex justify-content-center mb-4">
+                    <div class="col-md-8">
+                        <blockquote class="blockquote text-center">
+                            <p class="mb-0">The one thing that I have learned throughout this process is to be ok with
+                                your findings. It was eye opening to witness how much rigor goes into solving a problem.
+                            </p>
+                            <footer class="blockquote-footer mb-3">Steve Thomas <cite title="Source Title">2019</cite>
+                            </footer>
+                        </blockquote>
+                    </div>
+                </div>
             </section>
+            <hr class="my-5">
+            <section>
+                <div class="row">
+                    <div class="col-md-12">
+                        <p class="paragraph">Approximately two months ago, I was and still am fascinated about the world
+                            of machine learning. I had looked through tutorials about using the MNIST data set to
+                            predict numbers, classes of flowers, whether a picture was a muffin or a puppy. Going
+                            through these tutorials I had no problem in trying to set up a neural network or a decision
+                            tree or a logistic regression. However, the concept that was not clear to me was if you have
+                            set up a model with a certain accuracy, how do you then improve on that accuracy? </p>
+
+                        <p class="paragraph">Then I went into exploring machine learning packages from python that you
+                            can use. Many packages are out there like sci-kit learn, tensorflow, keras, xgboost, etc. I
+                            knew that I wanted to do a classification problem, basically answering a Yes or No question,
+                            but which one would I want to do? What problem was most interesting to me?</p>
+
+                        <p class="paragraph">A little background experience of the python technologies that I have used.
+                            I used BeautifulSoup, selenium/splinter for automation, flask for backend development. For
+                            data visualization, jupyter notebook, pandas, matplotlib. For machine learning, keras,
+                            sci-kit learn, tensorflow. It was time to put these to use and see if I can find a problem
+                            and attempt to solve. In our class, there was a lot of football talk about the Cleveland
+                            Browns this year and how they could be a playoff team. So I was thinking, how team select
+                            players and what is the process that prospects go through. There are "analysts" and
+                            "experts" that predict where would players go, when would they go off the board in a draft,
+                            what round are they picked. Although these questions are great for an advanced model, I just
+                            want to predict whether a player would get drafted. And so, the data science problem was
+                            stated.</p>
+
+                        <h4 class="border border-success p-md-2"><strong>Based on an NFL draft prospects height, weight,
+                                and the results that they posted in the NFL combine, will this person be
+                                drafted?</strong></h4>
+
+                        <p class="paragraph">As you read through this article, pay special attention to green boxes,
+                            because over the course of two months, the main question changes as I learn new methods and
+                            ways to represent the data. Now that I have the question at hand, how would we retrieve the
+                            data?</p>
+                    </div>
+                </div>
+            </section>
+            <hr class="my-5">
+            <!--./Section-->
         </div>
         <div class="container">
             <div class="row">
-                <div class="col-md-4 videowall">
-                    <div class="card">
-                        <div class="card-body">
-                            <h5 class="card-title text-center">Part 1: Introduction</h5>
-                            <p class="card-text">Insight as to what the goal of this project is and why did I choose the NFL Draft?</p>
-                            <a class="btn card-link d-flex justify-content-center" href="./introduction">GO</a>
-                        </div>
-                    </div>
-                </div>
                 <div class="col-md-4 videowall">
                     <div class="card">
                         <div class="card-body">
@@ -157,78 +199,82 @@
                 <div class="col-md-4 videowall">
                     <div class="card">
                         <div class="card-body">
-                            <h5 class="card-title text-center">Part 1: Introduction</h5>
-                            <p class="card-text"></p>
-                            <a class="btn card-link d-flex justify-content-center" href="">GO</a>
+                            <h5 class="card-title text-center">Part 3: Data Acquisition</h5>
+                            <p class="card-text">How did we get the data to train the model and to test the model.</p>
+                            <a class="btn card-link d-flex justify-content-center" href="/dataacquisition">GO</a>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-4 videowall">
                     <div class="card">
                         <div class="card-body">
-                            <h5 class="card-title text-center">Part 1: Introduction</h5>
-                            <p class="card-text"></p>
-                            <a class="btn card-link d-flex justify-content-center" href="">GO</a>
+                            <h5 class="card-title text-center">Part 4: Data Analysis</h5>
+                            <p class="card-text">What can we find out about our data after we clean it?</p>
+                            <a class="btn card-link d-flex justify-content-center" href="/dataanalysis">GO</a>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-4 videowall">
                     <div class="card">
                         <div class="card-body">
-                            <h5 class="card-title text-center">Part 1: Introduction</h5>
-                            <p class="card-text"></p>
-                            <a class="btn card-link d-flex justify-content-center" href="">GO</a>
+                            <h5 class="card-title text-center">Part 5: First Model</h5>
+                            <p class="card-text">What are the results of doing our first model and possible pitfalls.
+                            </p>
+                            <a class="btn card-link d-flex justify-content-center" href="/firstattempt">GO</a>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-4 videowall">
                     <div class="card">
                         <div class="card-body">
-                            <h5 class="card-title text-center">Part 1: Introduction</h5>
-                            <p class="card-text"></p>
-                            <a class="btn card-link d-flex justify-content-center" href="">GO</a>
+                            <h5 class="card-title text-center">Part 6: Outside Pocket</h5>
+                            <p class="card-text">What are the factors to consider or haven't considered in improving our
+                                model</p>
+                            <a class="btn card-link d-flex justify-content-center" href="/outsidepocket">GO</a>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-4 videowall">
                     <div class="card">
                         <div class="card-body">
-                            <h5 class="card-title text-center">Part 1: Introduction</h5>
-                            <p class="card-text"></p>
-                            <a class="btn card-link d-flex justify-content-center" href="">GO</a>
+                            <h5 class="card-title text-center">Part 7: Feature Engineering</h5>
+                            <p class="card-text">Adding or Deleting features to make our model(s) more accurate.</p>
+                            <a class="btn card-link d-flex justify-content-center" href="/features">GO</a>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-4 videowall">
                     <div class="card">
                         <div class="card-body">
-                            <h5 class="card-title text-center">Part 1: Introduction</h5>
-                            <p class="card-text"></p>
-                            <a class="btn card-link d-flex justify-content-center" href="">GO</a>
+                            <h5 class="card-title text-center">Part 8: Models</h5>
+                            <p class="card-text">Results of our 10 different models<br><br></p>
+                            <a class="btn card-link d-flex justify-content-center" href="/models">GO</a>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-4 videowall">
                     <div class="card">
                         <div class="card-body">
-                            <h5 class="card-title text-center">Part 1: Introduction</h5>
-                            <p class="card-text"></p>
-                            <a class="btn card-link d-flex justify-content-center" href="">GO</a>
+                            <h5 class="card-title text-center">Part 9: Predictions Part II</h5>
+                            <p class="card-text">Separating them into groups, what are our predictions this time.</p>
+                            <a class="btn card-link d-flex justify-content-center" href="/predictions">GO</a>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-4 videowall">
                     <div class="card">
                         <div class="card-body">
-                            <h5 class="card-title text-center">Part 1: Introduction</h5>
-                            <p class="card-text"></p>
-                            <a class="btn card-link d-flex justify-content-center" href="">GO</a>
+                            <h5 class="card-title text-center">Part 10: Conclusions</h5>
+                            <p class="card-text">A post-mortem on what I hav learned about machine learning in general.
+                            </p>
+                            <a class="btn card-link d-flex justify-content-center" href="/conclusion">GO</a>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </main>
+    <hr class="my-5">
     <!-- Footer -->
     <!--Footer-->
     <footer class="page-footer unique-color-dark">

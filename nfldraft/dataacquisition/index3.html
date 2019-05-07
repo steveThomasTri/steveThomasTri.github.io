@@ -6,10 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Steve Thomas Portfolio</title>
-    <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
-    <link rel="manifest" href="../site.webmanifest">
+    <link rel="apple-touch-icon" sizes="180x180" href="../../apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+    <link rel="manifest" href="../../site.webmanifest">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
     <!-- Bootstrap core CSS -->
@@ -25,7 +25,7 @@
         }
 
         #intro {
-            background: url("../NFL_Draft.jpg")no-repeat center center fixed;
+            background: url("../../NFL_Draft.jpg")no-repeat center center fixed;
             -webkit-background-size: cover;
             -moz-background-size: cover;
             -o-background-size: cover;
@@ -118,9 +118,8 @@
                             <hr class="hr-light">
 
                             <!-- Description -->
-                            <h4 class="white-text my-4">Taking you through my methodology of whether or not this year's
-                                NFL prospects will be drafted.</h4>
-                            <a href="./introduction" class="btn btn-outline-white">Introduction</a>
+                            <h4 class="white-text my-4">Part 3: Data Acquisition</h4>
+                            <h4 class="white-text my-4">How do we gather the data needed to decide on whether someone will be drafted?</h4>
                         </div>
                     </div>
                 </div>
@@ -132,9 +131,73 @@
         <div class="container">
             <!-- Section-->
             <section>
+                <div class="row">
+                    <div class="col-md-12">
+                        <p class="paragraph">You can find all of the jupyter notebooks and the csv files that I have
+                            used on <a href="https://github.com/steveThomasTri/2019NFLDraftProject.git">GitHub</a></p>
+                        <p class="paragraph">In order to acquire the data that we would like to model, we needed to go
+                            to two websites. </p>
+                        <ul>
+                            <li>nflcombineresults.com</li>
+                            <li>drafthistory.com</li>
+                        </ul>
+                        <p class="paragraph">The reason that we chose the first website is considering all other
+                            websites at the time, this one seems to be the most comprehensive. Whilst
+                            pro-football-reference had combine results that went back to 2000, The nflcombineresults.com
+                            went all the way back to 1997. From the first jupyter notebook (1 Data Acquisition) we start
+                            the process
+                            of getting all of the combine results from 1997 – 2018. The reason that we went back to 1997
+                            is because that year first introduced the 3 cone event. The website is nflcombineresults.com
+                            – 32 years of NFL scouting Combine data is the website that we used to scrape the data from
+                            splinter. After I got all of the combine data, I had to normalize the names column so that
+                            the name is lower case and remove all punctuations marks so that when we compare the names
+                            to whether they get drafted or not, the process would be easier. For this, we go to
+                            drafthistory.com. Gather the list of names from 1997 - 2018 and then cross check them to the
+                            nflcombinedata97to18.csv file. We would also like to
+                            remove rows that didn’t post a score in any of the events. Our model assumes that a prospect
+                            has competed in at least one event. So in this case, we will now revise our main question.
+                        </p>
 
+                        <h4 class="border border-success p-md-2"><strong>Having at least participated in one NFL combine
+                                event, will a future prospect be drafted in the NFL?</strong></h4>
+
+                        <p class="paragraph"><em>*A moment of retrospect* In gathering the data, you will notice that I
+                                used splinter to gather all of the data for each year. If I had to do this process all
+                                over again, It is much easier to use the pandas read_html function as it is much quicker
+                                to get the data and then each year I can concatenate the dataframes. Also, there may
+                                have been two key columns that were missing, hand size and arm length. These factors
+                                could have affected any future models that I might have made.</em></p>
+
+                        <p class="paragraph">Also, in 2015 the data accounted for 700 prospects in the NFL combine for
+                            that year. This is caused to additional data being added for that year. We cannot tell the
+                            reason as to why this occurred, but we cross-checked the number of combine participants for
+                            2015 and most of the sources have the number at around 300 individuals. So well will need to
+                            remove those rows that are not in the combine. We will be going to the <a
+                                href="https://www.sbnation.com/nfl/2015/2/6/7993765/nfl-combine-2015-invite-list">SB
+                                Nation website</a>
+                            that has the list of 2015 combine participants and search the dataframe to see if any
+                            players do not make the list. If the name is not in the article, remove that row and only
+                            search the rows with year 2015. In doing so, we have eliminated 451 rows giving a final 2015
+                            total of 285 rows. Then we merged the
+                            two dataframes by name and year to obtain a new dataset of 6300 rows.</p>
+
+                        <p class="paragraph">The drafthistory.com website provides us with the years of every NFL player
+                            that has been
+                            drafted. All that we are looking for is if the player is on the list, then we consider them
+                            drafted. Going to the website, I used splinter to gather a list of each player. And those
+                            players are stored in a dataframe called drafted. Storing the name, year, and a 1 for
+                            drafted. Once I have this dataframe, I will merge this dataframe with the combine
+                            information that I have previously made and merge it on the name and the year, because it is
+                            possible that there may be players with the same name in different years. For the column
+                            drafted, I changed the values of 1 to Y and 0 to N to get the final csv file with 6,300 rows
+                            and 13 columns. The completed file is called cleaned_NFL_combine_97_to_2018.csv. We now have
+                            the necessary data that has been cleaned, we will now go into analyzing our data and see
+                            what we can learn and any trends that we can observe.</p>
+                    </div>
+                </div>
             </section>
             <!--./Section-->
+            <hr class="my-5">
         </div>
         <div class="container">
             <div class="row">
@@ -142,7 +205,8 @@
                     <div class="card">
                         <div class="card-body">
                             <h5 class="card-title text-center">Part 1: Introduction</h5>
-                            <p class="card-text">Insight as to what the goal of this project is and why did I choose the NFL Draft?</p>
+                            <p class="card-text">Insight as to what the goal of this project is and why did I choose the
+                                NFL Draft?</p>
                             <a class="btn card-link d-flex justify-content-center" href="./introduction">GO</a>
                         </div>
                     </div>
@@ -159,15 +223,6 @@
                 <div class="col-md-4 videowall">
                     <div class="card">
                         <div class="card-body">
-                            <h5 class="card-title text-center">Part 3: Data Acquisition</h5>
-                            <p class="card-text">How did we get the data to train the model and to test the model.</p>
-                            <a class="btn card-link d-flex justify-content-center" href="/dataacquisition">GO</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 videowall">
-                    <div class="card">
-                        <div class="card-body">
                             <h5 class="card-title text-center">Part 4: Data Analysis</h5>
                             <p class="card-text">What can we find out about our data after we clean it?</p>
                             <a class="btn card-link d-flex justify-content-center" href="/dataanalysis">GO</a>
@@ -178,7 +233,8 @@
                     <div class="card">
                         <div class="card-body">
                             <h5 class="card-title text-center">Part 5: First Model</h5>
-                            <p class="card-text">What are the results of doing our first model and possible pitfalls.</p>
+                            <p class="card-text">What are the results of doing our first model and possible pitfalls.
+                            </p>
                             <a class="btn card-link d-flex justify-content-center" href="/firstattempt">GO</a>
                         </div>
                     </div>
@@ -187,7 +243,8 @@
                     <div class="card">
                         <div class="card-body">
                             <h5 class="card-title text-center">Part 6: Outside Pocket</h5>
-                            <p class="card-text">What are the factors to consider or haven't considered in improving our model</p>
+                            <p class="card-text">What are the factors to consider or haven't considered in improving our
+                                model</p>
                             <a class="btn card-link d-flex justify-content-center" href="/outsidepocket">GO</a>
                         </div>
                     </div>
@@ -223,7 +280,8 @@
                     <div class="card">
                         <div class="card-body">
                             <h5 class="card-title text-center">Part 10: Conclusions</h5>
-                            <p class="card-text">A post-mortem on what I hav learned about machine learning in general.</p>
+                            <p class="card-text">A post-mortem on what I hav learned about machine learning in general.
+                            </p>
                             <a class="btn card-link d-flex justify-content-center" href="/conclusion">GO</a>
                         </div>
                     </div>
@@ -231,6 +289,7 @@
             </div>
         </div>
     </main>
+    <hr class="my-5">
     <!-- Footer -->
     <!--Footer-->
     <footer class="page-footer unique-color-dark">
