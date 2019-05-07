@@ -118,8 +118,8 @@
                             <hr class="hr-light">
 
                             <!-- Description -->
-                            <h4 class="white-text my-4">Part 2: The Process of the NFL Draft</h4>
-                            <h4 class="white-text my-4">An overview of the process from the prospects at the NFL combine to picking players at the draft</h4>
+                            <h4 class="white-text my-4">Part 9: Finally...Time for Some More Predictions</h4>
+                            <h4 class="white-text my-4">Now let's evaluate the accuracy when we run some data through different models.</h4>
                         </div>
                     </div>
                 </div>
@@ -133,46 +133,184 @@
             <section>
                 <div class="row">
                     <div class="col-md-12">
-                        <p class="paragraph">Before we get into the data acquisition, A word on how the draft works. In
-                            late April, for three days, Americans are glued to watch which players will be drafted to
-                            which teams. Usually day 1 has the most talented prospects and that generates the most buzz.
-                            Day 2 consists of rounds 2 and 3. The conclusion of the draft is day 3 for rounds 4 to 7.
-                            There are 32 teams in the NFL and each team gets a pick for each round. A total of 224
-                            people are drafted plus 32 additional picks for a total of 256 players that are drafted.
-                            These picks are compulsory unless they trade. For further reading on how the draft works
-                            with the twists and turns, read the NFL's article titled <a
-                                href="https://operations.nfl.com/the-players/the-nfl-draft/the-rules-of-the-draft/">The
-                                Rules of the draft</a></p>
+                        <p class="paragraph">My testing data consists of 307 people from the 2019 NFL Draft. Again, I
+                            need to split the data into ten groups and put those through the different models. Some of
+                            the positions on players were changed to put them into the ten groups. For example, EDGE
+                            runners were lumped into the Defensive Lineman, because they are located near the defensive
+                            line. After splitting up the testing data, here are the counts for each group</p>
 
-                        <p class="paragraph">But what is a draft without prospects. That is where coaches get a look at
-                            how athletic each prospect is. How well they interview with coaches. How well they test and
-                            other factors. Two months earlier, 338 prospects were invited to Indianapolis. The link of
-                            all of the invitees is <a
-                                href="https://www.cbssports.com/nfl/draft/news/2019-nfl-draft-full-list-of-338-prospects-invited-to-nfl-scouting-combine-including-kyler-murray/">here</a>.
-                        </p>
+                        <table class="table text-nowrap table-striped table-sm">
+                            <thead class="black text-white">
+                                <tr class="tableizer-firstrow">
+                                    <th>Groups</th>
+                                    <th>Number of People</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Cornerbacks (CB)</td>
+                                    <td>35</td>
+                                </tr>
+                                <tr>
+                                    <td>Defensive Line (DL)</td>
+                                    <td>55</td>
+                                </tr>
+                                <tr>
+                                    <td>Linebackers (LB)</td>
+                                    <td>31</td>
+                                </tr>
+                                <tr>
+                                    <td>Offensive Line (OL)</td>
+                                    <td>50</td>
+                                </tr>
+                                <tr>
+                                    <td>Punters (P)</td>
+                                    <td>3</td>
+                                </tr>
+                                <tr>
+                                    <td>Quarterbacks(QB)</td>
+                                    <td>15</td>
+                                </tr>
+                                <tr>
+                                    <td>Running Backs (RB)</td>
+                                    <td>27</td>
+                                </tr>
+                                <tr>
+                                    <td>Safeties (S)</td>
+                                    <td>26</td>
+                                </tr>
+                                <tr>
+                                    <td>Tight Ends (TE)</td>
+                                    <td>20</td>
+                                </tr>
+                                <tr>
+                                    <td>Wide Receivers (WR)</td>
+                                    <td>45</td>
+                                </tr>
+                            </tbody>
+                        </table>
 
-                        <p class="paragraph">Most of the prospects will compete in at least one of 6 testing events in
-                            the combine:</p>
-                        <ol>
-                            <li>Bench Press - The weights are set at 225 lbs. and the person has to do as many reps as
-                                possible. This is an indicator of their strength. </li>
-                            <li>Vertical Leap - The prospect starts standing, they will jump as high as they can to slap
-                                a wall. This is an indicator of their lower body strength and power</li>
-                            <li>Broad Jump - The prospect starts flat footed and then they leap out in front. This is
-                                an indicator of their lower body strength and power. </li>
-                            <li>Three Cone Relay - The course is an L shaped. They will start at a cone, run to the
-                                middle cone, run back to the start, then run around both cones before sprinting to the
-                                start. This is an indicator of how a prospect can quickly shift directions at high
-                                speed.</li>
-                            <li>20 yard Shuttle Run - A prospect starts at a line, sprints 5 yards forward, sprints 10
-                                yards back, and then sprints 5 yards forward to complete the run. This is an indicator
-                                of the prospects ability to change direction and his lateral quickness.</li>
-                            <li>40 yard dash - A prospect sprints down 40 yards as quick as possible. This is an
-                                indication of their explosiveness, speed, burst, and acceleration. </li>
-                        </ol>
-                        <p class="paragraph">This is the data that we will be testing once all of the models are
-                            complete. We have our test data, but now we need data to train through data acquisition.
-                        </p>
+                        <p class="paragraph">Observe the <a
+                                href="https://github.com/steveThomasTri/2019NFLDraftProject/tree/master/TrainTest/All%20Test%20cases">All
+                                Test Cases</a> folder, this is where we split the 2019TestingData.csv file into ten sets
+                            of testing data. Each of them has different features based on the different models. In the
+                            jupyter notebook, for each group, we put the models through to make sure that we get the
+                            accuracy from the previous section. Using the testing data from each group, we scrap the
+                            necessary data based on the model. After that, we run the testing data through the model to
+                            get the predictions for the players. The results are detailed below:</p>
+
+                        <table class="table text-nowrap table-striped table-sm">
+                            <thead class="black text-white">
+                                <tr class="tableizer-firstrow">
+                                    <th>Groups</th>
+                                    <th>Number of People</th>
+                                    <th>Correct Predictions</th>
+                                    <th>False Positives</th>
+                                    <th>False Negatives</th>
+                                    <th>Model Accuracy</th>
+                                    <th>True Accuracy</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Cornerbacks (CB)</td>
+                                    <td>35</td>
+                                    <td>27</td>
+                                    <td>7</td>
+                                    <td>1</td>
+                                    <td>81.28%</td>
+                                    <td>77.14%</td>
+                                </tr>
+                                <tr>
+                                    <td>Defensive Line (DL)</td>
+                                    <td>55</td>
+                                    <td>40</td>
+                                    <td>11</td>
+                                    <td>4</td>
+                                    <td>76.57%</td>
+                                    <td>72.73%</td>
+                                </tr>
+                                <tr>
+                                    <td>Linebackers (LB)</td>
+                                    <td>31</td>
+                                    <td>21</td>
+                                    <td>9</td>
+                                    <td>1</td>
+                                    <td>78.88%</td>
+                                    <td>67.74%</td>
+                                </tr>
+                                <tr>
+                                    <td>Offensive Line (OL)</td>
+                                    <td>50</td>
+                                    <td>34</td>
+                                    <td>13</td>
+                                    <td>3</td>
+                                    <td>71.65%</td>
+                                    <td>68.00%</td>
+                                </tr>
+                                <tr>
+                                    <td>Punters (P)</td>
+                                    <td>3</td>
+                                    <td>1</td>
+                                    <td>0</td>
+                                    <td>2</td>
+                                    <td>60.00%</td>
+                                    <td>33.33%</td>
+                                </tr>
+                                <tr>
+                                    <td>Quarterbacks(QB)</td>
+                                    <td>15</td>
+                                    <td>6</td>
+                                    <td>6</td>
+                                    <td>3</td>
+                                    <td>81.42%</td>
+                                    <td>40.00%</td>
+                                </tr>
+                                <tr>
+                                    <td>Running Backs (RB)</td>
+                                    <td>27</td>
+                                    <td>21</td>
+                                    <td>4</td>
+                                    <td>2</td>
+                                    <td>69.63%</td>
+                                    <td>77.78%</td>
+                                </tr>
+                                <tr>
+                                    <td>Safeties (S)</td>
+                                    <td>26</td>
+                                    <td>19</td>
+                                    <td>6</td>
+                                    <td>1</td>
+                                    <td>74.19%</td>
+                                    <td>73.08%</td>
+                                </tr>
+                                <tr>
+                                    <td>Tight Ends (TE)</td>
+                                    <td>20</td>
+                                    <td>13</td>
+                                    <td>4</td>
+                                    <td>3</td>
+                                    <td>81.42%</td>
+                                    <td>65.00%</td>
+                                </tr>
+                                <tr>
+                                    <td>Wide Receivers (WR)</td>
+                                    <td>45</td>
+                                    <td>29</td>
+                                    <td>11</td>
+                                    <td>5</td>
+                                    <td>75.21%</td>
+                                    <td>64.44%</td>
+                                </tr>
+                                <tr>
+                                    <td>All Groups</td>
+                                    <td>307</td>
+                                    <td>211</td>
+                                    <td colspan="3"></td>
+                                    <td>68.73%</td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </section>
@@ -188,6 +326,15 @@
                             <p class="card-text">Insight as to what the goal of this project is and why did I choose the
                                 NFL Draft?</p>
                             <a class="btn card-link d-flex justify-content-center" href="./introduction">GO</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 videowall">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title text-center">Part 2: The NFL Draft</h5>
+                            <p class="card-text">How does the NFL Draft work from the combine to the drafting stage</p>
+                            <a class="btn card-link d-flex justify-content-center" href="./process">GO</a>
                         </div>
                     </div>
                 </div>
@@ -244,15 +391,6 @@
                             <h5 class="card-title text-center">Part 8: Models</h5>
                             <p class="card-text">Results of our 10 different models<br><br></p>
                             <a class="btn card-link d-flex justify-content-center" href="./models">GO</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 videowall">
-                    <div class="card">
-                        <div class="card-body">
-                            <h5 class="card-title text-center">Part 9: Predictions Part II</h5>
-                            <p class="card-text">Separating them into groups, what are our predictions this time.</p>
-                            <a class="btn card-link d-flex justify-content-center" href="./predictions">GO</a>
                         </div>
                     </div>
                 </div>

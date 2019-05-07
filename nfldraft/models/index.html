@@ -1,0 +1,989 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Steve Thomas Portfolio</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="../../apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+    <link rel="manifest" href="../../site.webmanifest">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
+    <!-- Bootstrap core CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Material Design Bootstrap -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.7.7/css/mdb.min.css" rel="stylesheet">
+    <style>
+        html,
+        body,
+        header,
+        #intro {
+            height: 100%;
+        }
+
+        #intro {
+            background: url("../../NFL_Draft.jpg")no-repeat center center fixed;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
+        }
+
+        .btnn-white {
+            color: white
+        }
+
+        p.paragraph {
+            font-size: 18px;
+            line-height: 2.22
+        }
+
+        .videowall {
+            padding: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark primary-color fixed-top">
+            <a class="navbar-brand" href="/"><img src="../../android-chrome-192x192.png" style="width:40px" /></a>
+
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav"
+                aria-controls="basicExampleNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="basicExampleNav">
+                <!-- Left Side -->
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/">Home
+                            <span class="sr-only">(current)</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Portfolio</a>
+                    </li>
+
+                    <!-- Dropdown -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">Resume</a>
+                        <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
+                            <a class="dropdown-item" href="#">NodeJS</a>
+                            <a class="dropdown-item" href="#">Python</a>
+                            <a class="dropdown-item" href="#">Web Development</a>
+                        </div>
+                    </li>
+                </ul>
+
+                <!-- Right Side -->
+                <form class="form-inline">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item active">
+                            <a href="https://www.linkedin.com/in/steve-thomas-91685599/"
+                                class="btn-floating btn-lg btn-li primary-color" type="button" role="button"><i
+                                    class="fab fa-linkedin-in btnn-white"></i></a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="https://github.com/steveThomasTri"
+                                class="btn-floating btn-lg btn-git primary-color" type="button" role="button"><i
+                                    class="fab fa-github btnn-white"></i></a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="btn-floating btn-lg btn-email primary-color" type="button"
+                                role="button"><i class="fas fa-envelope btnn-white"></i></a>
+                        </li>
+                    </ul>
+                </form>
+            </div>
+        </nav>
+        <!--Mask-->
+        <div id="intro" class="view">
+            <div class="mask rgba-black-strong">
+                <div class="container-fluid d-flex align-items-center justify-content-center h-100">
+                    <div class="row d-flex justify-content-center text-center">
+                        <div class="col-md-10">
+                            <!-- Heading -->
+                            <h2 class="display-4 font-weight-bold white-text pt-5 mb-2">2019 NFL Draft</h2>
+
+                            <!-- Divider -->
+                            <hr class="hr-light">
+
+                            <!-- Description -->
+                            <h4 class="white-text my-4">Part 8: All 10 Models</h4>
+                            <h4 class="white-text my-4">The breakdown of the ten different groups</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--/.Mask-->
+    </header>
+    <main class="mt-5">
+        <div class="container">
+            <!-- Section-->
+            <section>
+                <h4>Wide Receiver</h4>
+                <div class="row">
+                    <div class="col-md-6">
+                        <table class="table table-striped">
+                            <tr>
+                                <td>Number of Records</td>
+                                <td>806</td>
+                            </tr>
+                            <tr>
+                                <td>Initial Accuracy</td>
+                                <td>67.36%</td>
+                            </tr>
+                            <tr>
+                                <td>Accuracy if some features are removed</td>
+                                <td>72.31%</td>
+                                <td>Weight, Vertical Leap, Broad Jump </td>
+                            </tr>
+                            <tr>
+                                <td colspan="3">Features Added: College yards, Colled Receptions, College
+                                    touchdowns, is All-American, is Heisman, has awards, has bling</td>
+                            </tr>
+                            <tr>
+                                <td>Accuracy with certain features removed</td>
+                                <td>75.21%</td>
+                                <td>Weight, Vertical Leap, Shuttle Run, 3 cone, College receptions, College
+                                    touchdowns, has bling, has awards </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="col-md-6">
+                        <table class="table table-striped">
+                            <tr>
+                                <td>Final Accuracy</td>
+                                <td>75.21%</td>
+                            </tr>
+                            <tr>
+                                <td>Learning Rate</td>
+                                <td>10%</td>
+                            </tr>
+                            <tr>
+                                <td>n_estimators</td>
+                                <td>100</td>
+                            </tr>
+                            <tr>
+                                <td>Max Depth</td>
+                                <td>3</td>
+                            </tr>
+                            <tr>
+                                <td>Minimun Child Weight</td>
+                                <td>1</td>
+                            </tr>
+                            <tr>
+                                <td>Gamma</td>
+                                <td>0</td>
+                            </tr>
+                            <tr>
+                                <td>ColSample_ByTree</td>
+                                <td>1</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <hr>
+                <h4>Cornerbacks</h4>
+                <div class="row">
+                    <div class="col-md-6">
+                        <table class="table table-striped">
+                            <tr>
+                                <td>Number of Records</td>
+                                <td>621</td>
+                            </tr>
+                            <tr>
+                                <td>Initial Accuracy</td>
+                                <td>68.45%</td>
+                            </tr>
+                            <tr>
+                                <td>Max Accuracy if some features are removed</td>
+                                <td>75.94%</td>
+                                <td>Height, Bench Press, Shuttle Run</td>
+                            </tr>
+                            <tr>
+                                <td colspan="3">Features Added: Solo Tackles, Assist tackles, defense
+                                    interceptions, defense yards, defensive average, defensive touchdowns,
+                                    defense pd, has bling, has awards, is heisman, is all-american</td>
+                            </tr>
+                            <tr>
+                                <td>Max Accuracy with certain features removed</td>
+                                <td>80.21%</td>
+                                <td>Weight, Bench press, broad jump, shuttle run, defense yards, defense average
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="col-md-6">
+                        <table class="table table-striped">
+                            <tr>
+                                <td>Final Accuracy</td>
+                                <td>81.28%</td>
+                            </tr>
+                            <tr>
+                                <td>Learning Rate</td>
+                                <td>10%</td>
+                            </tr>
+                            <tr>
+                                <td>n_estimators</td>
+                                <td>200</td>
+                            </tr>
+                            <tr>
+                                <td>Max Depth</td>
+                                <td>2</td>
+                            </tr>
+                            <tr>
+                                <td>Minimun Child Weight</td>
+                                <td>1</td>
+                            </tr>
+                            <tr>
+                                <td>Gamma</td>
+                                <td>0.1</td>
+                            </tr>
+                            <tr>
+                                <td>ColSample_ByTree</td>
+                                <td>0.3</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <hr class="my-5">
+                <h4>Defensive Line</h4>
+                <div class="row">
+                    <div class="col-md-6">
+                        <table class="table table-striped">
+                            <tr>
+                                <td>Number of Records</td>
+                                <td>1009</td>
+                            </tr>
+                            <tr>
+                                <td>Initial Accuracy</td>
+                                <td>72.61%</td>
+                            </tr>
+                            <tr>
+                                <td>Max Accuracy if some features are removed</td>
+                                <td>73.93%</td>
+                                <td>Bench press, vertical leap, shuttle run</td>
+                            </tr>
+                            <tr>
+                                <td colspan="3">Features Added: has bling, has awards, is heisman, is
+                                    all-american</td>
+                            </tr>
+                            <tr>
+                                <td>Accuracy with certain features removed</td>
+                                <td>76.24%</td>
+                                <td>bench press, vertical leap, 3 cone, has bling, has awards</td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="col-md-6">
+                        <table class="table table-striped">
+                            <tr>
+                                <td>Final Accuracy</td>
+                                <td>76.57%</td>
+                            </tr>
+                            <tr>
+                                <td>Learning Rate</td>
+                                <td>10%</td>
+                            </tr>
+                            <tr>
+                                <td>n_estimators</td>
+                                <td>100</td>
+                            </tr>
+                            <tr>
+                                <td>Max Depth</td>
+                                <td>2</td>
+                            </tr>
+                            <tr>
+                                <td>Minimun Child Weight</td>
+                                <td>3</td>
+                            </tr>
+                            <tr>
+                                <td>Gamma</td>
+                                <td>0.1</td>
+                            </tr>
+                            <tr>
+                                <td>ColSample_ByTree</td>
+                                <td>0.7</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <hr class="my-5">
+                <h4>Linebackers</h4>
+                <div class="row">
+                    <div class="col-md-6">
+                        <table class="table table-striped">
+                            <tr>
+                                <td>Number of Records</td>
+                                <td>771</td>
+                            </tr>
+                            <tr>
+                                <td>Initial Accuracy</td>
+                                <td>74.14%</td>
+                            </tr>
+                            <tr>
+                                <td>Max Accuracy if some features are removed</td>
+                                <td>76.72%</td>
+                                <td>Weight, Bench Press, Broad Jump, Shuttle Run, 3 cone</td>
+                            </tr>
+                            <tr>
+                                <td colspan="3">Features Added: is all-american, is heisman, has awards</td>
+                            </tr>
+                            <tr>
+                                <td>Accuracy with certain features removed</td>
+                                <td>77.16%</td>
+                                <td>Weight, Bench Press, Broad Jump, Shuttle, all american</td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="col-md-6">
+                        <table class="table table-striped">
+                            <tr>
+                                <td>Final Accuracy</td>
+                                <td>78.88%</td>
+                            </tr>
+                            <tr>
+                                <td>Learning Rate</td>
+                                <td>10%</td>
+                            </tr>
+                            <tr>
+                                <td>n_estimators</td>
+                                <td>100</td>
+                            </tr>
+                            <tr>
+                                <td>Max Depth</td>
+                                <td>2</td>
+                            </tr>
+                            <tr>
+                                <td>Minimun Child Weight</td>
+                                <td>3</td>
+                            </tr>
+                            <tr>
+                                <td>Gamma</td>
+                                <td>0</td>
+                            </tr>
+                            <tr>
+                                <td>ColSample_ByTree</td>
+                                <td>0.5</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <hr class="my-5">
+                <h4>Offensive Line</h4>
+                <div class="row">
+                    <div class="col-md-6">
+                        <table class="table table-striped">
+                            <tr>
+                                <td>Number of Records</td>
+                                <td>1092</td>
+                            </tr>
+                            <tr>
+                                <td>Initial Accuracy</td>
+                                <td>68.60%</td>
+                            </tr>
+                            <tr>
+                                <td>Max Accuracy if some features are removed</td>
+                                <td>71.95%</td>
+                                <td>Height, Vertical Leap, 3 cone</td>
+                            </tr>
+                            <tr>
+                                <td colspan="3">Features Added: won award, won an outland trophy for best
+                                    lineman</td>
+                            </tr>
+                            <tr>
+                                <td>Max Accuracy with certain features removed</td>
+                                <td>70.73%</td>
+                                <td>Bench Press, Vertical leap, 3 cone, wonaward, outland</td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="col-md-6">
+                        <table class="table table-striped">
+                            <tr>
+                                <td>Final Accuracy (Hyperparameter Tuning)</td>
+                                <td>71.65%</td>
+                            </tr>
+                            <tr>
+                                <td>Learning Rate</td>
+                                <td>10%</td>
+                            </tr>
+                            <tr>
+                                <td>n_estimators</td>
+                                <td>100</td>
+                            </tr>
+                            <tr>
+                                <td>Max Depth</td>
+                                <td>5</td>
+                            </tr>
+                            <tr>
+                                <td>Minimun Child Weight</td>
+                                <td>1</td>
+                            </tr>
+                            <tr>
+                                <td>Gamma</td>
+                                <td>0</td>
+                            </tr>
+                            <tr>
+                                <td>ColSample_ByTree</td>
+                                <td>0.7</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <hr class="my-5">
+                <h4>Punters</h4>
+                <div class="row">
+                    <div class="col-md-6">
+                        <table class="table table-striped">
+                            <tr>
+                                <td>Number of Records</td>
+                                <td>15</td>
+                            </tr>
+                            <tr>
+                                <td>Initial Accuracy</td>
+                                <td>60%</td>
+                            </tr>
+                            <tr>
+                                <td>Max Accuracy if some features are removed</td>
+                                <td>60%</td>
+                                <td>Any number of features can be dropped</td>
+                            </tr>
+                            <tr>
+                                <td colspan="3">Features Added: Punts, yards, average, has bling, all american,
+                                    is heisman, has awards</td>
+                            </tr>
+                            <tr>
+                                <td>Accuracy with certain features removed</td>
+                                <td>60%</td>
+                                <td>Any number of features can be removed</td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="col-md-6">
+                        <table class="table table-striped">
+                            <tr>
+                                <td>Final Accuracy (Hyperparameter Tuning)</td>
+                                <td>60%</td>
+                            </tr>
+                            <tr>
+                                <td>Learning Rate</td>
+                                <td>10%</td>
+                            </tr>
+                            <tr>
+                                <td>n_estimators</td>
+                                <td>100</td>
+                            </tr>
+                            <tr>
+                                <td>Max Depth</td>
+                                <td>1</td>
+                            </tr>
+                            <tr>
+                                <td>Minimun Child Weight</td>
+                                <td>1</td>
+                            </tr>
+                            <tr>
+                                <td>Gamma</td>
+                                <td>0</td>
+                            </tr>
+                            <tr>
+                                <td>ColSample_ByTree</td>
+                                <td>1</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <hr class="my-5">
+                <h4>Quarterbacks</h4>
+                <div class="row">
+                    <div class="col-md-6">
+                        <table class="table table-striped">
+                            <tr>
+                                <td>Number of Records</td>
+                                <td>376</td>
+                            </tr>
+                            <tr>
+                                <td>Initial Accuracy</td>
+                                <td>60.53%</td>
+                            </tr>
+                            <tr>
+                                <td>Accuracy if some features are removed</td>
+                                <td>71.05%</td>
+                                <td>Broad Jump and shuttle run</td>
+                            </tr>
+                            <tr>
+                                <td colspan="3">Features Added:completions, attempts, percentage, yards,
+                                    touchdowns, interceptions, quarterback rating, has bling, has awards, is
+                                    heisman, is all american</td>
+                            </tr>
+                            <tr>
+                                <td>Accuracy with certain features removed</td>
+                                <td>%</td>
+                                <td>Weight, 3 cone, percentage, touchdowns, quarterback rating, has bling, has
+                                    awards</td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="col-md-6">
+                        <table class="table table-striped">
+                            <tr>
+                                <td>Final Accuracy</td>
+                                <td>81.42%</td>
+                            </tr>
+                            <tr>
+                                <td>Learning Rate</td>
+                                <td>10%</td>
+                            </tr>
+                            <tr>
+                                <td>n_estimators</td>
+                                <td>100</td>
+                            </tr>
+                            <tr>
+                                <td>Max Depth</td>
+                                <td>3</td>
+                            </tr>
+                            <tr>
+                                <td>Minimun Child Weight</td>
+                                <td>1</td>
+                            </tr>
+                            <tr>
+                                <td>Gamma</td>
+                                <td>0</td>
+                            </tr>
+                            <tr>
+                                <td>ColSample_ByTree</td>
+                                <td>1</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <hr class="my-5">
+                <h4>Running Backs</h4>
+                <div class="row">
+                    <div class="col-md-6">
+                        <table class="table table-striped">
+                            <tr>
+                                <td>Number of Records</td>
+                                <td>712</td>
+                            </tr>
+                            <tr>
+                                <td>Initial Accuracy</td>
+                                <td>59.81%</td>
+                            </tr>
+                            <tr>
+                                <td>Accuracy if some features are removed</td>
+                                <td>63.08%</td>
+                                <td>Height and 3 cone</td>
+                            </tr>
+                            <tr>
+                                <td colspan="3">Features Added: rushing attempts, rushing yards, rushing yards
+                                    per attempt, rushing touchdowns, has bling, has awards, is all american, is
+                                    heisman</td>
+                            </tr>
+                            <tr>
+                                <td>Accuracy with certain features removed</td>
+                                <td>68.69%</td>
+                                <td>Height, vertical leap, broad jump, 3 cone, has bling, has awards</td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="col-md-6">
+                        <table class="table table-striped">
+                            <tr>
+                                <td>Final Accuracy</td>
+                                <td>69.63%</td>
+                            </tr>
+                            <tr>
+                                <td>Learning Rate</td>
+                                <td>1%</td>
+                            </tr>
+                            <tr>
+                                <td>n_estimators</td>
+                                <td>200</td>
+                            </tr>
+                            <tr>
+                                <td>Max Depth</td>
+                                <td>9</td>
+                            </tr>
+                            <tr>
+                                <td>Minimun Child Weight</td>
+                                <td>5</td>
+                            </tr>
+                            <tr>
+                                <td>Gamma</td>
+                                <td>0.2</td>
+                            </tr>
+                            <tr>
+                                <td>ColSample_ByTree</td>
+                                <td>1</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <hr>
+                <h4>Safeties</h4>
+                <div class="row">
+                    <div class="col-md-6">
+                        <table class="table table-striped">
+                            <tr>
+                                <td>Number of Records</td>
+                                <td>515</td>
+                            </tr>
+                            <tr>
+                                <td>Initial Accuracy</td>
+                                <td>62.58%</td>
+                            </tr>
+                            <tr>
+                                <td>Accuracy if some features are removed</td>
+                                <td>71.61%</td>
+                                <td>Height, bench press, vertical leap, broad jump, shuttle run, 3 cone</td>
+                            </tr>
+                            <tr>
+                                <td colspan="3">Features Added: isbuilt if a person is at least 6'2" and 200 lbs
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Accuracy with certain features removed</td>
+                                <td>74.19%</td>
+                                <td>Everything except weight and 40 yard run</td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="col-md-6">
+                        <table class="table table-striped">
+                            <tr>
+                                <td>Final Accuracy</td>
+                                <td>74.19%</td>
+                            </tr>
+                            <tr>
+                                <td>Learning Rate</td>
+                                <td>10%</td>
+                            </tr>
+                            <tr>
+                                <td>n_estimators</td>
+                                <td>100</td>
+                            </tr>
+                            <tr>
+                                <td>Max Depth</td>
+                                <td>3</td>
+                            </tr>
+                            <tr>
+                                <td>Minimun Child Weight</td>
+                                <td>7</td>
+                            </tr>
+                            <tr>
+                                <td>Gamma</td>
+                                <td>0.4</td>
+                            </tr>
+                            <tr>
+                                <td>ColSample_ByTree</td>
+                                <td>1</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <hr>
+                <h4>Tight Ends</h4>
+                <div class="row">
+                    <div class="col-md-6">
+                        <table class="table table-striped">
+                            <tr>
+                                <td>Number of Records</td>
+                                <td>364</td>
+                            </tr>
+                            <tr>
+                                <td>Initial Accuracy</td>
+                                <td>62.73%</td>
+                            </tr>
+                            <tr>
+                                <td>Accuracy if some features are removed</td>
+                                <td>75.45%</td>
+                                <td>height, weight, broad jump, shuttle run, 3 cone</td>
+                            </tr>
+                            <tr>
+                                <td colspan="3">Features Added:scrimmage yards, scrimmage plays, scrimmage yards
+                                    per attemp, scrimmage touchdowns, is all american, has awards, heisman</td>
+                            </tr>
+                            <tr>
+                                <td>Accuracy with certain features removed</td>
+                                <td>77.27%</td>
+                                <td>weight, 40 yards, bench press, shuttle run, all american, has bling,
+                                    scrimage yards, scrimmage touchdowns</td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="col-md-6">
+                        <table class="table table-striped">
+                            <tr>
+                                <td>Final Accuracy</td>
+                                <td>83.64%</td>
+                            </tr>
+                            <tr>
+                                <td>Learning Rate</td>
+                                <td>0.1%</td>
+                            </tr>
+                            <tr>
+                                <td>n_estimators</td>
+                                <td>300</td>
+                            </tr>
+                            <tr>
+                                <td>Max Depth</td>
+                                <td>11</td>
+                            </tr>
+                            <tr>
+                                <td>Minimun Child Weight</td>
+                                <td>3</td>
+                            </tr>
+                            <tr>
+                                <td>Gamma</td>
+                                <td>0.4</td>
+                            </tr>
+                            <tr>
+                                <td>ColSample_ByTree</td>
+                                <td>0.3</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <p class="paragraph">These are the ten groups for generating the predictions for the draft. What
+                    we will now do is take our testing data from <a
+                        href="https://github.com/steveThomasTri/2019NFLDraftProject/blob/master/data/2019TestingData.csv">2019TestingData.csv</a>
+                </p>
+        </div>
+        </section>
+        <!--./Section-->
+        <hr class="my-5">
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 videowall">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title text-center">Part 1: Introduction</h5>
+                            <p class="card-text">Insight as to what the goal of this project is and why did I choose the
+                                NFL Draft?</p>
+                            <a class="btn card-link d-flex justify-content-center" href="./introduction">GO</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 videowall">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title text-center">Part 2: The NFL Draft</h5>
+                            <p class="card-text">How does the NFL Draft work from the combine to the drafting stage</p>
+                            <a class="btn card-link d-flex justify-content-center" href="./process">GO</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 videowall">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title text-center">Part 3: Data Acquisition</h5>
+                            <p class="card-text">How did we get the data to train the model and to test the model.</p>
+                            <a class="btn card-link d-flex justify-content-center" href="./dataacquisition">GO</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 videowall">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title text-center">Part 4: Data Analysis</h5>
+                            <p class="card-text">What can we find out about our data after we clean it?</p>
+                            <a class="btn card-link d-flex justify-content-center" href="./dataanalysis">GO</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 videowall">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title text-center">Part 5: First Model</h5>
+                            <p class="card-text">What are the results of doing our first model and possible pitfalls.
+                            </p>
+                            <a class="btn card-link d-flex justify-content-center" href="./firstattempt">GO</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 videowall">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title text-center">Part 6: Outside Pocket</h5>
+                            <p class="card-text">What are the factors to consider or haven't considered in improving our
+                                model</p>
+                            <a class="btn card-link d-flex justify-content-center" href="./outsidepocket">GO</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 videowall">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title text-center">Part 7: Feature Engineering</h5>
+                            <p class="card-text">Adding or Deleting features to make our model(s) more accurate.</p>
+                            <a class="btn card-link d-flex justify-content-center" href="./features">GO</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 videowall">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title text-center">Part 9: Predictions Part II</h5>
+                            <p class="card-text">Separating them into groups, what are our predictions this time.</p>
+                            <a class="btn card-link d-flex justify-content-center" href="./predictions">GO</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 videowall">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title text-center">Part 10: Conclusions</h5>
+                            <p class="card-text">A post-mortem on what I hav learned about machine learning in general.
+                            </p>
+                            <a class="btn card-link d-flex justify-content-center" href="./conclusion">GO</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <hr class="my-5">
+    <!-- Footer -->
+    <!--Footer-->
+    <footer class="page-footer unique-color-dark">
+
+        <!-- Social buttons -->
+        <div class="primary-color">
+            <div class="container">
+                <!--Grid row-->
+                <div class="row py-4 d-flex align-items-center">
+
+                    <!--Grid column-->
+                    <div class="col-md-6 col-lg-5 text-center text-md-left mb-4 mb-md-0">
+                        <h6 class="mb-0 white-text">Get connected with us on social networks!</h6>
+                    </div>
+                    <!--Grid column-->
+
+                    <!--Grid column-->
+                    <div class="col-md-6 col-lg-7 text-center text-md-right">
+                        <!--Linkedin-->
+                        <a href="https://www.linkedin.com/in/steve-thomas-91685599/" class="li-ic">
+                            <i class="fab fa-linkedin-in white-text mr-4"> </i>
+                        </a>
+                    </div>
+                    <!--Grid column-->
+
+                </div>
+                <!--Grid row-->
+            </div>
+        </div>
+        <!-- Social buttons -->
+
+        <!--Footer Links-->
+        <div class="container mt-5 mb-4 text-center text-md-left">
+            <div class="row mt-3">
+
+                <!--First column-->
+                <div class="col-md-3 col-lg-4 col-xl-3 mb-4">
+                    <h6 class="text-uppercase font-weight-bold">
+                        <strong>Steve Thomas</strong>
+                    </h6>
+                    <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+                    <p>I am also an innovative problem solver helping organizations overcome their most pressing
+                        challenges. I have strong skills in web development, communication, and leadership, and I enjoy
+                        opportunities that challenge me to make a meaningful impact.</p>
+                </div>
+                <!--/.First column-->
+
+                <!--Second column-->
+                <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+                    <h6 class="text-uppercase font-weight-bold">
+                        <strong>My Experience</strong>
+                    </h6>
+                    <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+                    <p>
+                        <a href="#!">Web Development</a>
+                    </p>
+                    <p>
+                        <a href="#!">NodeJS</a>
+                    </p>
+                    <p>
+                        <a href="#!">Python/Data Visualization</a>
+                    </p>
+                    <p>
+                        <a href="#!">Machine Learning</a>
+                    </p>
+                </div>
+                <!--/.Second column-->
+
+                <!--Third column-->
+                <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+                    <h6 class="text-uppercase font-weight-bold">
+                        <strong>Projects</strong>
+                    </h6>
+                    <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+                    <p>
+                        <a href="#!">Cash Explosion</a>
+                    </p>
+                    <p>
+                        <a href="#!">Data Helpdesk</a>
+                    </p>
+                    <p>
+                        <a href="#!">2019 NFL Draft</a>
+                    </p>
+                    <p>
+                        <a href="#!">Help</a>
+                    </p>
+                </div>
+                <!--/.Third column-->
+
+                <!--Fourth column-->
+                <div class="col-md-4 col-lg-3 col-xl-3">
+                    <h6 class="text-uppercase font-weight-bold">
+                        <strong>Contact</strong>
+                    </h6>
+                    <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+                    <p>
+                        <i class="fas fa-home  mr-3"></i> Euclid, Ohio, US</p>
+                    <p>
+                        <i class="fas fa-envelope mr-3"></i> myemail@myemail.com</p>
+                    <!--<p>
+                        <i class="fas fa-phone mr-3"></i> + 01 234 567 88</p>
+                    <p>
+                        <i class="fas fa-print mr-3"></i> + 01 234 567 89</p>
+                    -->
+                </div>
+                <!--/.Fourth column-->
+            </div>
+        </div>
+        <!--/.Footer Links-->
+
+        <!-- Copyright -->
+        <div class="footer-copyright text-center py-3">©2019 Copyright: Steve Thomas
+        </div>
+        <!-- Copyright -->
+
+    </footer>
+    <!-- Footer -->
+    <!-- JQuery -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!-- Bootstrap tooltips -->
+    <script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
+    <!-- Bootstrap core JavaScript -->
+    <script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <!-- MDB core JavaScript -->
+    <script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.7.7/js/mdb.min.js"></script>
+</body>
+
+</html>

@@ -118,8 +118,8 @@
                             <hr class="hr-light">
 
                             <!-- Description -->
-                            <h4 class="white-text my-4">Part 2: The Process of the NFL Draft</h4>
-                            <h4 class="white-text my-4">An overview of the process from the prospects at the NFL combine to picking players at the draft</h4>
+                            <h4 class="white-text my-4">Part 4: Data Analysis</h4>
+                            <h4 class="white-text my-4">What can we learn from the data that we have grabbed.  Coorelations, Standard deviation, and what to do with missing values?</h4>
                         </div>
                     </div>
                 </div>
@@ -133,46 +133,140 @@
             <section>
                 <div class="row">
                     <div class="col-md-12">
-                        <p class="paragraph">Before we get into the data acquisition, A word on how the draft works. In
-                            late April, for three days, Americans are glued to watch which players will be drafted to
-                            which teams. Usually day 1 has the most talented prospects and that generates the most buzz.
-                            Day 2 consists of rounds 2 and 3. The conclusion of the draft is day 3 for rounds 4 to 7.
-                            There are 32 teams in the NFL and each team gets a pick for each round. A total of 224
-                            people are drafted plus 32 additional picks for a total of 256 players that are drafted.
-                            These picks are compulsory unless they trade. For further reading on how the draft works
-                            with the twists and turns, read the NFL's article titled <a
-                                href="https://operations.nfl.com/the-players/the-nfl-draft/the-rules-of-the-draft/">The
-                                Rules of the draft</a></p>
+                        <p class="paragraph">We have our data merged and now what we want to do is see if there are any
+                            opportunities to clean our data. The CSV that we have created is
+                            (cleaned_NFL_combine_97_to_2018.csv) and this file is what we are going to be reading from
+                            now on. We will be using xgboost because it is a package that will handle NaN values, if
+                            not, then we will need another package to impute the values. Some of my motivations of using
+                            xgboost is this article</p>
+                        <p><a
+                                href="https://machinelearningmastery.com/gentle-introduction-xgboost-applied-machine-learning/">A
+                                Gentle Introduction to XGBoost for Applied Machine Learning</a></p>
 
-                        <p class="paragraph">But what is a draft without prospects. That is where coaches get a look at
-                            how athletic each prospect is. How well they interview with coaches. How well they test and
-                            other factors. Two months earlier, 338 prospects were invited to Indianapolis. The link of
-                            all of the invitees is <a
-                                href="https://www.cbssports.com/nfl/draft/news/2019-nfl-draft-full-list-of-338-prospects-invited-to-nfl-scouting-combine-including-kyler-murray/">here</a>.
-                        </p>
+                        <p class="paragraph">We have classified our data as supervised, which is that we know what our
+                            features are and the data from those features and the target column that will decide whether
+                            or not someone is drafted. The jupyter notebook that we did our data analysis is <a
+                                href="https://github.com/steveThomasTri/2019NFLDraftProject/blob/master/2%20Data%20Analysis.ipynb">2
+                                Data Analysis</a></p>
 
-                        <p class="paragraph">Most of the prospects will compete in at least one of 6 testing events in
-                            the combine:</p>
-                        <ol>
-                            <li>Bench Press - The weights are set at 225 lbs. and the person has to do as many reps as
-                                possible. This is an indicator of their strength. </li>
-                            <li>Vertical Leap - The prospect starts standing, they will jump as high as they can to slap
-                                a wall. This is an indicator of their lower body strength and power</li>
-                            <li>Broad Jump - The prospect starts flat footed and then they leap out in front. This is
-                                an indicator of their lower body strength and power. </li>
-                            <li>Three Cone Relay - The course is an L shaped. They will start at a cone, run to the
-                                middle cone, run back to the start, then run around both cones before sprinting to the
-                                start. This is an indicator of how a prospect can quickly shift directions at high
-                                speed.</li>
-                            <li>20 yard Shuttle Run - A prospect starts at a line, sprints 5 yards forward, sprints 10
-                                yards back, and then sprints 5 yards forward to complete the run. This is an indicator
-                                of the prospects ability to change direction and his lateral quickness.</li>
-                            <li>40 yard dash - A prospect sprints down 40 yards as quick as possible. This is an
-                                indication of their explosiveness, speed, burst, and acceleration. </li>
-                        </ol>
-                        <p class="paragraph">This is the data that we will be testing once all of the models are
-                            complete. We have our test data, but now we need data to train through data acquisition.
-                        </p>
+                        <p class="paragraph">A good start to analyze the data is to do a describe function on the
+                            dataframe. Here is a table that summarizes those features</p>
+
+                        <table class="table text-nowrap table-striped table-sm">
+                            <thead class="black text-white">
+                                <tr class="tableizer-firstrow">
+                                    <th>Feature</th>
+                                    <th>Range of values</th>
+                                    <th>Mean</th>
+                                    <th>Standard Deviation</th>
+                                    <th>Number of values</th>
+                                    <th>Percent missing</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Height</td>
+                                    <td>65.25-81.63</td>
+                                    <td>73.89</td>
+                                    <td>6.367</td>
+                                    <td>6300</td>
+                                    <td>0%</td>
+                                </tr>
+                                <tr>
+                                    <td>Weight</td>
+                                    <td>155-387</td>
+                                    <td>244.93</td>
+                                    <td>45.47</td>
+                                    <td>6300</td>
+                                    <td>0%</td>
+                                </tr>
+                                <tr>
+                                    <td>40 yards</td>
+                                    <td>4.21 - 6.12</td>
+                                    <td>4.81</td>
+                                    <td>.314</td>
+                                    <td>6083</td>
+                                    <td>3.4%</td>
+                                </tr>
+                                <tr>
+                                    <td>Bench press</td>
+                                    <td>2 - 51</td>
+                                    <td>20.9</td>
+                                    <td>6.33</td>
+                                    <td>4708</td>
+                                    <td>25.3%</td>
+                                </tr>
+                                <tr>
+                                    <td>Vertical leap</td>
+                                    <td>17.5 - 46</td>
+                                    <td>32.68</td>
+                                    <td>4.19</td>
+                                    <td>5505</td>
+                                    <td>12.6%</td>
+                                </tr>
+                                <tr>
+                                    <td>Broad Jump</td>
+                                    <td>73 - 147</td>
+                                    <td>113.27</td>
+                                    <td>9.29</td>
+                                    <td>5390</td>
+                                    <td>14.4%</td>
+                                </tr>
+                                <tr>
+                                    <td>Shuttle</td>
+                                    <td>3.73 - 5.68</td>
+                                    <td>4.386</td>
+                                    <td>.269</td>
+                                    <td>4769</td>
+                                    <td>24.3%</td>
+                                </tr>
+                                <tr>
+                                    <td>3 cone drill</td>
+                                    <td>6.34 - 9.61</td>
+                                    <td>7.34</td>
+                                    <td>.446</td>
+                                    <td>4640</td>
+                                    <td>26.3%</td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <p class="paragraph">As you can see, we get a good snapshot of what our data consists of. We
+                            have missing values, but because the xgboost library handles these pretty well, we will
+                            ignore these for now. The feature with the highest missing values is the 3 cone drill with
+                            26.3%. I have read in some articles that if there are 50% missing values, that column should
+                            be dropped. Other articles are in the range of 20-50%, depending on what you are trying to
+                            model. Because each event is important for certain positions more so than the next and the
+                            fact that he missing values fall short of the 50% threshold, we will keep all of the columns
+                            and make a decision on whether to impute missing values or not. </p>
+
+                        <p class="paragraph">For 2 Data Analysis, I was looking for correlations of two variables. My
+                            thought process at the time was that if I can find relationships between two variables, I
+                            can best understand my data better. I have got the following strong correlations</p>
+
+                        <ul>
+                            <li>vertical leap & broad jump (+.804956)</li>
+                            <li>weight_lbs & 40 yards (+.858913)</li>
+                            <li>3cone & shuttle (+.790662)</li>
+                            <li>broad_jump_in & 40 yards (-.819220)</li>
+                        </ul>
+
+                        <p class="paragraph">In notebook <a href="#">2b Exploratory Data Analysis</a> I have also done
+                            an analysis on each of the 6 events to see if there is anything else that I can learn from
+                            my data. What I wanted to do is to see if there is a flag for certain data. For example, We
+                            will look at the first table where I grouped by position and whether a person is drafted.
+                            Wide Receivers need to be fast so it makes sense that we look at how they run the 40 yard
+                            dash. People that were drafted had times between 4.21s and 4.76s. People that were not
+                            drafted ran between 4.31s and 4.85 seconds. My thought was that any wide receivers that ran
+                            less than 4.31 seconds would more likely get drafted and any wide receivers that ran slower
+                            than 4.76 seconds were more likely to not be drafted. If the testing data shows that faster
+                            than 4.31 seconds were drafted and slower than 4.76 seconds were not drafted, then I believe
+                            that there was something there and coaches were looking at the times of the 40 yard, not to
+                            say that other factors were considered, but the model might solely look at the 40 yard dash
+                            for wide receivers. The notebooks analyze the data by position and whether or not they were
+                            drafted is left in the notebook and I am open to what should I have explored further for
+                            this data or if this is a fruitless endeavor. We have got to know our data a little bit
+                            better, and now we will make our first attempt at modeling our data.</p>
                     </div>
                 </div>
             </section>
@@ -194,18 +288,18 @@
                 <div class="col-md-4 videowall">
                     <div class="card">
                         <div class="card-body">
-                            <h5 class="card-title text-center">Part 3: Data Acquisition</h5>
-                            <p class="card-text">How did we get the data to train the model and to test the model.</p>
-                            <a class="btn card-link d-flex justify-content-center" href="./dataacquisition">GO</a>
+                            <h5 class="card-title text-center">Part 2: The NFL Draft</h5>
+                            <p class="card-text">How does the NFL Draft work from the combine to the drafting stage</p>
+                            <a class="btn card-link d-flex justify-content-center" href="./process">GO</a>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-4 videowall">
                     <div class="card">
                         <div class="card-body">
-                            <h5 class="card-title text-center">Part 4: Data Analysis</h5>
-                            <p class="card-text">What can we find out about our data after we clean it?</p>
-                            <a class="btn card-link d-flex justify-content-center" href="./dataanalysis">GO</a>
+                            <h5 class="card-title text-center">Part 3: Data Acquisition</h5>
+                            <p class="card-text">How did we get the data to train the model and to test the model.</p>
+                            <a class="btn card-link d-flex justify-content-center" href="./dataacquisition">GO</a>
                         </div>
                     </div>
                 </div>

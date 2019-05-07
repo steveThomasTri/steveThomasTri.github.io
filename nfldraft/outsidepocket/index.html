@@ -118,8 +118,8 @@
                             <hr class="hr-light">
 
                             <!-- Description -->
-                            <h4 class="white-text my-4">Part 2: The Process of the NFL Draft</h4>
-                            <h4 class="white-text my-4">An overview of the process from the prospects at the NFL combine to picking players at the draft</h4>
+                            <h4 class="white-text my-4">Part 6: Thinking Outside the Pocket</h4>
+                            <h4 class="white-text my-4">Our first model doesn't represent the problem accurately.  What should we have considered and how do we factor that in to a future model.</h4>
                         </div>
                     </div>
                 </div>
@@ -133,46 +133,58 @@
             <section>
                 <div class="row">
                     <div class="col-md-12">
-                        <p class="paragraph">Before we get into the data acquisition, A word on how the draft works. In
-                            late April, for three days, Americans are glued to watch which players will be drafted to
-                            which teams. Usually day 1 has the most talented prospects and that generates the most buzz.
-                            Day 2 consists of rounds 2 and 3. The conclusion of the draft is day 3 for rounds 4 to 7.
-                            There are 32 teams in the NFL and each team gets a pick for each round. A total of 224
-                            people are drafted plus 32 additional picks for a total of 256 players that are drafted.
-                            These picks are compulsory unless they trade. For further reading on how the draft works
-                            with the twists and turns, read the NFL's article titled <a
-                                href="https://operations.nfl.com/the-players/the-nfl-draft/the-rules-of-the-draft/">The
-                                Rules of the draft</a></p>
+                        <p class="paragraph">Although in our first model we were able to get 70.21% accuracy, the
+                            problem is that this model doesn't accurately represent what the coaches are looking for.
+                            Because NFL teams need to fill different positions and different positions require different
+                            attributes, the first model is not a fair representation of what is happening in the real
+                            world. It is not enough to think about the measurements of a player, you also have to think
+                            about the intangibles of that individual. You have to put on many hats as a data scientist,
+                            such as in this case, a coach, a scout, a GM, an owner, etc. How do you measure leadership?
+                            How do you evaluate how well they interview? What is their work ethic on and off the field?
+                            More importantly, how would one quantify intangibles? For some of these intangibles, they
+                            are not available to the public and thus it may be impossible to measure like interviews,
+                            white board test, Wonderlic test. One word about the Wonderlic test is that some of these
+                            scores are leaked to the public and we cannot verify the validity of these scores. Here is a
+                            list of factors that were considered and not considered. Keep in mind that the items not
+                            considered may not be an exhaustive list.</p>
 
-                        <p class="paragraph">But what is a draft without prospects. That is where coaches get a look at
-                            how athletic each prospect is. How well they interview with coaches. How well they test and
-                            other factors. Two months earlier, 338 prospects were invited to Indianapolis. The link of
-                            all of the invitees is <a
-                                href="https://www.cbssports.com/nfl/draft/news/2019-nfl-draft-full-list-of-338-prospects-invited-to-nfl-scouting-combine-including-kyler-murray/">here</a>.
-                        </p>
+                        <h5>Factors that I have considered:</h5>
+                        <ul>
+                            <li>Prospect's height and weight</li>
+                            <li>Prospect's measurements in the 6 events</li>
+                            <li>Prospect's college stats</li>
+                            <li>If any awards were received (Heisman, all-American)</li>
+                            <li>Prospect's position</li>
+                        </ul>
+                        <h5>Factors that I have NOT considered:</h5>
+                        <ul>
+                            <li>Prospect's arm length and hand length</li>
+                            <li>Prospect's college and conference</li>
+                            <li>Prospect's interviews, white board test, and Wonderlic test</li>
+                            <li>How tough was their conference</li>
+                            <li>Their grit (leadership, work ethic, toughness, football intelligence)</li>
+                            <li>Different teams needs to fill certain positions</li>
+                            <li>Any tapes that scouts looked at to assess their playing ability</li>
+                            <li>And much more...</li>
+                        </ul>
 
-                        <p class="paragraph">Most of the prospects will compete in at least one of 6 testing events in
-                            the combine:</p>
-                        <ol>
-                            <li>Bench Press - The weights are set at 225 lbs. and the person has to do as many reps as
-                                possible. This is an indicator of their strength. </li>
-                            <li>Vertical Leap - The prospect starts standing, they will jump as high as they can to slap
-                                a wall. This is an indicator of their lower body strength and power</li>
-                            <li>Broad Jump - The prospect starts flat footed and then they leap out in front. This is
-                                an indicator of their lower body strength and power. </li>
-                            <li>Three Cone Relay - The course is an L shaped. They will start at a cone, run to the
-                                middle cone, run back to the start, then run around both cones before sprinting to the
-                                start. This is an indicator of how a prospect can quickly shift directions at high
-                                speed.</li>
-                            <li>20 yard Shuttle Run - A prospect starts at a line, sprints 5 yards forward, sprints 10
-                                yards back, and then sprints 5 yards forward to complete the run. This is an indicator
-                                of the prospects ability to change direction and his lateral quickness.</li>
-                            <li>40 yard dash - A prospect sprints down 40 yards as quick as possible. This is an
-                                indication of their explosiveness, speed, burst, and acceleration. </li>
-                        </ol>
-                        <p class="paragraph">This is the data that we will be testing once all of the models are
-                            complete. We have our test data, but now we need data to train through data acquisition.
-                        </p>
+                        <p class='paragraph'>There are other factors that were not considered and I have a list of two
+                            articles that outline these intangibles. The first article is from <a
+                                href='https://www.theringer.com/2018/4/12/17227604/nfl-draft-intangibles-scouting-evaluation'>The
+                                Ringer</a> one year ago. This article outlines how scouts evaluate qualities like poise,
+                            confidence, grit, etc. The second article is a starting point on how the <a
+                                href="https://bleacherreport.com/articles/1686933-how-do-scouts-break-down-nfl-safety-prospects">Bleacher
+                                Report</a> breaks down certain positions. The article starts off with what scouts look
+                            for in a safety. There are more links in other positions if you are interested. There are
+                            other articles out there, but these are the two main ones to get a general understanding on
+                            other factors than just raw numbers. </p>
+
+                        <p class='paragraph'>From suggestions that were given to me. I have decided that instead of one
+                            model, I would have a model for each group. With each model, determine what combine events
+                            are important in an attempt to reduce noise and make the models more of like what to look
+                            for
+                            in those positions. So starting from our 8 original features, let's see if there are some
+                            features that we would like to add, or delete.</p>
                     </div>
                 </div>
             </section>
@@ -188,6 +200,15 @@
                             <p class="card-text">Insight as to what the goal of this project is and why did I choose the
                                 NFL Draft?</p>
                             <a class="btn card-link d-flex justify-content-center" href="./introduction">GO</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 videowall">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title text-center">Part 2: The NFL Draft</h5>
+                            <p class="card-text">How does the NFL Draft work from the combine to the drafting stage</p>
+                            <a class="btn card-link d-flex justify-content-center" href="./process">GO</a>
                         </div>
                     </div>
                 </div>

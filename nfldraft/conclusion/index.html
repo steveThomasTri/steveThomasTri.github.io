@@ -50,7 +50,7 @@
 <body>
     <header>
         <nav class="navbar navbar-expand-lg navbar-dark primary-color fixed-top">
-            <a class="navbar-brand" href="/"><img src="../android-chrome-192x192.png" style="width:40px" /></a>
+            <a class="navbar-brand" href="/"><img src="../../android-chrome-192x192.png" style="width:40px" /></a>
 
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav"
                 aria-controls="basicExampleNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -118,8 +118,8 @@
                             <hr class="hr-light">
 
                             <!-- Description -->
-                            <h4 class="white-text my-4">Part 3:</h4>
-                            <h4 class="white-text my-4"></h4>
+                            <h4 class="white-text my-4">Part 10: Conclusions</h4>
+                            <h4 class="white-text my-4">What are my main takeaways from modeling the NFL Draft</h4>
                         </div>
                     </div>
                 </div>
@@ -131,7 +131,15 @@
         <div class="container">
             <!-- Section-->
             <section>
+                <div class="row">
+                    <div class="col-md-12">
+                        <p class="paragraph">For all the group, the total accuracy is 68.73% (211 out of 307 predictions).  However, if you break down the accureacies by group, we determined that the model accuracies were higher in all but one group.  The true accuracies range from 33.33% to 77.78%.  We have three groups of data that we want to look at and they are quarterbacks, tight ends, and wide receivers.  This tells me that there are factors that we have missed to get a really low true accuracy.  Maybe we will need to try and model some intangible factors pertaining to the quarterbacks.  Now if I was the owner of the company,  Is it more detrimental to hire someone who is not NFL material (False Positive) or is it not hiring someone that should be on the NFL (False Negative)?  In our quarterback model, Dwayne Haskins, star quarterback on Ohio State was not selected in the draft.  I would like to find out the actual penalty of not hiring that person.  Be it in revenue or games.  </p>
 
+                        <p class="paragraph">So I have got a lot of great advice on how to think of this problem differently, outside of the numbers and putting on lots of different hats to accurately model, what is happening in a problem.  There is a lot to learn about machine learning and the processes of using the data and thinking of the data in a different way.  One of the suggestions is that different teams have different needs and how to allocate those needs.  We can do a model on what each team needs and the top players for that team.  As players come off the board and/or as their positions are filled, adjust the top players for different team models.  There are other packages out there besides xgbppst.  There are neural networks, tensorflow, keras, lightgbm, that can solve the problem.  What if I used those instead of xgboost.  I have also made the decision to use 1997-2018 data, what if I pick a different year?  would the accuracy change if I start in the early 2000s.  How much would accuracy change if I imputed missing values.  Cross validation of data from different sources to make sure data is accurately represented in the model.  A post-mortem, retrospective, is a really good way to see what can be learned and reflect on our decisions that were made in the process.  The one takeaway that I would give to anyone that wants to attempt to solve a problem in machine learning is that you need to be ok with your findings.  Sure there are things that you would like to do differently, but even if you were very methodical with your approach, and you are careful about how you put in data, and the decisions about feature selection, Sometimes, no matter what your accuracy is, maybe nickel and dime a percentage or two.  Be OK and proud with what you have accomplished.  </p>
+
+                        <p class="paragraph">More importantly than just getting the raw numbers, the accuracies only tell half of the story.  To tell the entire story, we will need to factor in intangibles.  Whether it is internal qualities that makeup that group or speculation in getting information that is not accessible to the public, that is what makes machine learning really powerful in the problems that you can solve.  So I encourage you to go out and find a problem to solve through machine learning.  Maybe there is something that you might discover.  </p>
+                    </div>
+                </div>
             </section>
             <!--./Section-->
             <hr class="my-5">
@@ -153,7 +161,7 @@
                         <div class="card-body">
                             <h5 class="card-title text-center">Part 2: The NFL Draft</h5>
                             <p class="card-text">How does the NFL Draft work from the combine to the drafting stage</p>
-                            <a class="btn card-link d-flex justify-content-center" href="/process">GO</a>
+                            <a class="btn card-link d-flex justify-content-center" href="./process">GO</a>
                         </div>
                     </div>
                 </div>
@@ -162,7 +170,7 @@
                         <div class="card-body">
                             <h5 class="card-title text-center">Part 3: Data Acquisition</h5>
                             <p class="card-text">How did we get the data to train the model and to test the model.</p>
-                            <a class="btn card-link d-flex justify-content-center" href="/dataacquisition">GO</a>
+                            <a class="btn card-link d-flex justify-content-center" href="./dataacquisition">GO</a>
                         </div>
                     </div>
                 </div>
@@ -171,7 +179,7 @@
                         <div class="card-body">
                             <h5 class="card-title text-center">Part 4: Data Analysis</h5>
                             <p class="card-text">What can we find out about our data after we clean it?</p>
-                            <a class="btn card-link d-flex justify-content-center" href="/dataanalysis">GO</a>
+                            <a class="btn card-link d-flex justify-content-center" href="./dataanalysis">GO</a>
                         </div>
                     </div>
                 </div>
@@ -181,7 +189,7 @@
                             <h5 class="card-title text-center">Part 5: First Model</h5>
                             <p class="card-text">What are the results of doing our first model and possible pitfalls.
                             </p>
-                            <a class="btn card-link d-flex justify-content-center" href="/firstattempt">GO</a>
+                            <a class="btn card-link d-flex justify-content-center" href="./firstattempt">GO</a>
                         </div>
                     </div>
                 </div>
@@ -191,7 +199,7 @@
                             <h5 class="card-title text-center">Part 6: Outside Pocket</h5>
                             <p class="card-text">What are the factors to consider or haven't considered in improving our
                                 model</p>
-                            <a class="btn card-link d-flex justify-content-center" href="/outsidepocket">GO</a>
+                            <a class="btn card-link d-flex justify-content-center" href="./outsidepocket">GO</a>
                         </div>
                     </div>
                 </div>
@@ -200,7 +208,7 @@
                         <div class="card-body">
                             <h5 class="card-title text-center">Part 7: Feature Engineering</h5>
                             <p class="card-text">Adding or Deleting features to make our model(s) more accurate.</p>
-                            <a class="btn card-link d-flex justify-content-center" href="/features">GO</a>
+                            <a class="btn card-link d-flex justify-content-center" href="./features">GO</a>
                         </div>
                     </div>
                 </div>
@@ -209,7 +217,7 @@
                         <div class="card-body">
                             <h5 class="card-title text-center">Part 8: Models</h5>
                             <p class="card-text">Results of our 10 different models<br><br></p>
-                            <a class="btn card-link d-flex justify-content-center" href="/models">GO</a>
+                            <a class="btn card-link d-flex justify-content-center" href="./models">GO</a>
                         </div>
                     </div>
                 </div>
@@ -218,17 +226,7 @@
                         <div class="card-body">
                             <h5 class="card-title text-center">Part 9: Predictions Part II</h5>
                             <p class="card-text">Separating them into groups, what are our predictions this time.</p>
-                            <a class="btn card-link d-flex justify-content-center" href="/predictions">GO</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 videowall">
-                    <div class="card">
-                        <div class="card-body">
-                            <h5 class="card-title text-center">Part 10: Conclusions</h5>
-                            <p class="card-text">A post-mortem on what I hav learned about machine learning in general.
-                            </p>
-                            <a class="btn card-link d-flex justify-content-center" href="/conclusion">GO</a>
+                            <a class="btn card-link d-flex justify-content-center" href="./predictions">GO</a>
                         </div>
                     </div>
                 </div>

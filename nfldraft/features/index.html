@@ -118,8 +118,8 @@
                             <hr class="hr-light">
 
                             <!-- Description -->
-                            <h4 class="white-text my-4">Part 2: The Process of the NFL Draft</h4>
-                            <h4 class="white-text my-4">An overview of the process from the prospects at the NFL combine to picking players at the draft</h4>
+                            <h4 class="white-text my-4">Part 7: Feature Selection/Feature Engineering</h4>
+                            <h4 class="white-text my-4"></h4>
                         </div>
                     </div>
                 </div>
@@ -133,46 +133,84 @@
             <section>
                 <div class="row">
                     <div class="col-md-12">
-                        <p class="paragraph">Before we get into the data acquisition, A word on how the draft works. In
-                            late April, for three days, Americans are glued to watch which players will be drafted to
-                            which teams. Usually day 1 has the most talented prospects and that generates the most buzz.
-                            Day 2 consists of rounds 2 and 3. The conclusion of the draft is day 3 for rounds 4 to 7.
-                            There are 32 teams in the NFL and each team gets a pick for each round. A total of 224
-                            people are drafted plus 32 additional picks for a total of 256 players that are drafted.
-                            These picks are compulsory unless they trade. For further reading on how the draft works
-                            with the twists and turns, read the NFL's article titled <a
-                                href="https://operations.nfl.com/the-players/the-nfl-draft/the-rules-of-the-draft/">The
-                                Rules of the draft</a></p>
+                        <p class="paragraph"><strong>Feature Engineering</strong> is taking the data that you have
+                            already to generate new features. Sometimes it is an attempt to explain features not
+                            considered in the model. For example, the feature that we want to add is BMI (Body Mass
+                            Index) we can use the prospect's height and weight to generate what their BMI is so that we
+                            may be able to predict if someone is drafted. You can see that you can generate any number
+                            of additional features based on the data you have, but the risk is that you are going to
+                            introduce unnecessary noise to your model. Feature engineering is an art and a science, so
+                            the only way to know what constitutes a good feature is by experience. </p>
 
-                        <p class="paragraph">But what is a draft without prospects. That is where coaches get a look at
-                            how athletic each prospect is. How well they interview with coaches. How well they test and
-                            other factors. Two months earlier, 338 prospects were invited to Indianapolis. The link of
-                            all of the invitees is <a
-                                href="https://www.cbssports.com/nfl/draft/news/2019-nfl-draft-full-list-of-338-prospects-invited-to-nfl-scouting-combine-including-kyler-murray/">here</a>.
-                        </p>
+                        <p class="paragraph">What we will do is to categorize the data that we have into ten groups with
+                            ten separate csvs. These ten categories are:</p>
+                        <ul>
+                            <li>Offensive Line (OL) consists of OT, OG, C, OL</li>
+                            <li>Defensive Line (DL) consists of DT, DE, DL</li>
+                            <li>Running Backs (RB) consists of RB, HB, FB</li>
+                            <li>Line Backers (LB) consists of OLB, ILB, LB, DB</li>
+                            <li>Tight Ends (TE)</li>
+                            <li>Cornerbacks (CB)</li>
+                            <li>Wide Receivers (WR)</li>
+                            <li>Safety (S) consists of FS, SS</li>
+                            <li>Quarterbacks (QB)</li>
+                            <li>Punters (P)</li>
+                        </ul>
+                        <p class="paragraph">So let's revise our question:</p>
+                        <h4 class="border border-success p-md-2"><strong>Based on an NFL draft prospects height, weight,
+                                and the results that they posted in the NFL combine, will this person be
+                                drafted if we group them by position?</strong></h4>
+                        <p class="paragraph">So we get away from a position neutral model to a model based on a players
+                            declared position in the combine. We start off separating each player in the training data
+                            by the categories. We will be observing the data of each group. <a href=''>6 Splitting into
+                                categories</a> is the notebook that makes those ten csvs in the TrainTest Folder. Within
+                            the TrainTest folder, we make ten folders that coorespond to the groups. </p>
 
-                        <p class="paragraph">Most of the prospects will compete in at least one of 6 testing events in
-                            the combine:</p>
-                        <ol>
-                            <li>Bench Press - The weights are set at 225 lbs. and the person has to do as many reps as
-                                possible. This is an indicator of their strength. </li>
-                            <li>Vertical Leap - The prospect starts standing, they will jump as high as they can to slap
-                                a wall. This is an indicator of their lower body strength and power</li>
-                            <li>Broad Jump - The prospect starts flat footed and then they leap out in front. This is
-                                an indicator of their lower body strength and power. </li>
-                            <li>Three Cone Relay - The course is an L shaped. They will start at a cone, run to the
-                                middle cone, run back to the start, then run around both cones before sprinting to the
-                                start. This is an indicator of how a prospect can quickly shift directions at high
-                                speed.</li>
-                            <li>20 yard Shuttle Run - A prospect starts at a line, sprints 5 yards forward, sprints 10
-                                yards back, and then sprints 5 yards forward to complete the run. This is an indicator
-                                of the prospects ability to change direction and his lateral quickness.</li>
-                            <li>40 yard dash - A prospect sprints down 40 yards as quick as possible. This is an
-                                indication of their explosiveness, speed, burst, and acceleration. </li>
-                        </ol>
-                        <p class="paragraph">This is the data that we will be testing once all of the models are
-                            complete. We have our test data, but now we need data to train through data acquisition.
-                        </p>
+                        <p class='paragraph'>For each folder, there will be three notebooks and a csv file of training
+                            data for that group. </p>
+
+                        <p class="paragraph">The next part, models, breaks down the ten charts. Starting from the left, Using
+                            the original 8 features, we get the base accuracy and a possible accuracy if any of the 8
+                            features are removed. The next line is any features that we will add. For different groups,
+                            there will be certain featurs that make sense to add like wide receivers receiving yards,
+                            touchdowns, that do not for a defense tackle. After we add more features, we run the model
+                            again and this time we get the highest accuracy attainable if we do not do any feature
+                            tuning and any features that we will remove.</p>
+        
+                        <p class='paragraph'>The second table is once we get the maximum accuracy, we will be doing
+                            hyperparameter tuning to see if we can get the model to perform better. There are 6
+                            parameters that we have considered tuning:</p>
+        
+                        <ul>
+                            <li>Learning Rate - In each step, as new data is taken in, the model will change how certain
+                                features are weighed in each step. The larger the value, the more rows it learns
+                                quickly.</li>
+                            <li>n_estimators - Number of decision trees</li>
+                            <li>Max Depth - How deep is each tree</li>
+                            <li>Minimun Child Weight - A larger value makes the model more conservative</li>
+                            <li>Gamma - Minimum loss reduction required to make further partitions on a leaf node of the
+                                tree.</li>
+                            <li>Colsample_bytree - subsample ratio of columns when constructing each tree.</li>
+                        </ul>
+        
+                        <p class='paragraph'>For more information on each of these parameters, consult the
+                            documentation. <a href="https://xgboost.readthedocs.io/en/latest/parameter.html">XGBoost
+                                Parameters</a></p>
+        
+                        <p class="paragraph">Here is a breakdown of what each notebook was used for:</p>
+                        <ul>
+                            <li>The first notebook establishes the model from the base configurations and finds the
+                                maximum accuracy if the original 8 features are considered.</li>
+                            <li>Part II Notebook uses splinter to obtain additional data based on the group. It goes
+                                through each name and fills in the data and if they got awards. College stats are left
+                                blank if none exists, but awards are always populated.</li>
+                            <li>Part III notebook gets the base accuracy when we add features from part II. Then we find
+                                the maximum accuracy if certain features are removed. Verify that removing those
+                                features give us the maximum accuracy. Then we implement hyperparameter tuning using the
+                                6 parameters through brute force. There are 14,400 different combinations to check for.
+                            </li>
+                        </ul>
+                        <p class="paragraph">Next is the model evaluation and the accuracies of each.</p>
                     </div>
                 </div>
             </section>
@@ -188,6 +226,15 @@
                             <p class="card-text">Insight as to what the goal of this project is and why did I choose the
                                 NFL Draft?</p>
                             <a class="btn card-link d-flex justify-content-center" href="./introduction">GO</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 videowall">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title text-center">Part 2: The NFL Draft</h5>
+                            <p class="card-text">How does the NFL Draft work from the combine to the drafting stage</p>
+                            <a class="btn card-link d-flex justify-content-center" href="./process">GO</a>
                         </div>
                     </div>
                 </div>
@@ -226,15 +273,6 @@
                             <p class="card-text">What are the factors to consider or haven't considered in improving our
                                 model</p>
                             <a class="btn card-link d-flex justify-content-center" href="./outsidepocket">GO</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 videowall">
-                    <div class="card">
-                        <div class="card-body">
-                            <h5 class="card-title text-center">Part 7: Feature Engineering</h5>
-                            <p class="card-text">Adding or Deleting features to make our model(s) more accurate.</p>
-                            <a class="btn card-link d-flex justify-content-center" href="./features">GO</a>
                         </div>
                     </div>
                 </div>
